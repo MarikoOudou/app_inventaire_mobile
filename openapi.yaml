@@ -1,0 +1,446 @@
+openapi: 3.0.1
+info:
+  title: OpenAPI definition
+  version: v0
+servers:
+  - url: http://localhost:8080
+    description: Generated server url
+paths:
+  /user/{users_id}:
+    get:
+      tags:
+        - Users
+      summary: Get user by id
+      operationId: getById
+      parameters:
+        - name: users_id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Users'
+    put:
+      tags:
+        - Users
+      summary: Update user
+      operationId: update
+      parameters:
+        - name: users_id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Users'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Users'
+  /periodeinentaire/{id}:
+    get:
+      tags:
+        - Periode Inventaire
+      summary: Get by id
+      operationId: getByCodeLocalisation
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+    put:
+      tags:
+        - Periode Inventaire
+      summary: Update periode inentaire
+      operationId: update_1
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PeriodeInventaire'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+  /inventaire/{id}:
+    get:
+      tags:
+        - Inventaire
+      summary: Get by id
+      operationId: getByCodeLocalisation_1
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+    put:
+      tags:
+        - Inventaire
+      summary: Update inventaire
+      operationId: update_2
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Inventaire'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+  /codification/{id}:
+    put:
+      tags:
+        - Codification
+      summary: Update codification
+      operationId: updateCodification
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Codification'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+  /user:
+    post:
+      tags:
+        - Users
+      summary: Create user
+      operationId: create
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Users'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+  /periodeinentaire:
+    get:
+      tags:
+        - Periode Inventaire
+      summary: Get All periode inentaire
+      operationId: getAll_1
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+    post:
+      tags:
+        - Periode Inventaire
+      summary: Create periode inentaire
+      operationId: create_1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PeriodeInventaire'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+  /inventaire:
+    post:
+      tags:
+        - Inventaire
+      summary: Create inventaire
+      operationId: create_2
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Inventaire'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+  /codifications:
+    get:
+      tags:
+        - Codification
+      summary: Get All Codification
+      operationId: getCodification
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+    post:
+      tags:
+        - Codification
+      summary: Create multiple codification
+      operationId: creates
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/Codification'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+  /codification:
+    post:
+      tags:
+        - Codification
+      summary: Create codification
+      operationId: createCodification
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Codification'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+  /users:
+    get:
+      tags:
+        - Users
+      summary: Get All user
+      operationId: getAll
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Users'
+  /inventaires:
+    get:
+      tags:
+        - Inventaire
+      summary: Get All inventaires
+      operationId: getAll_2
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+  /inventaires/{id_periode_inventaire}:
+    get:
+      tags:
+        - Inventaire
+      summary: Get All inventaires by periode
+      operationId: getByPeriode
+      parameters:
+        - name: id_periode_inventaire
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+  /codifications/{code_localisation}:
+    get:
+      tags:
+        - Codification
+      summary: Get by code_localisation
+      operationId: getByCodeLocalisation_2
+      parameters:
+        - name: code_localisation
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+components:
+  schemas:
+    Users:
+      type: object
+      properties:
+        userId:
+          type: integer
+          format: int32
+        email:
+          type: string
+        typeUser:
+          type: string
+        adress:
+          type: string
+        fullname:
+          type: string
+    PeriodeInventaire:
+      type: object
+      properties:
+        id_periode_inventaire:
+          type: integer
+          format: int64
+        libelle:
+          type: string
+        n_bordereau:
+          type: string
+        isActive:
+          type: boolean
+        date_debut:
+          type: string
+          format: date-time
+        date_fin:
+          type: string
+          format: date-time
+    Codification:
+      type: object
+      properties:
+        id_codification:
+          type: integer
+          format: int64
+        code_guichet:
+          type: string
+        departement:
+          type: string
+        direction:
+          type: string
+        famille:
+          type: string
+        libelle_famille:
+          type: string
+        libelle_famille_1:
+          type: string
+        niveau:
+          type: string
+        service:
+          type: string
+        sous_famille:
+          type: string
+        codeLocalisation:
+          type: string
+        libelle_agence:
+          type: string
+        libelle_localisation:
+          type: string
+    Inventaire:
+      type: object
+      properties:
+        id_inventaire:
+          type: integer
+          format: int64
+        n_inventaire:
+          type: string
+        n_serie:
+          type: string
+        etat:
+          type: string
+        nom_agent:
+          type: string
+        observations:
+          type: string
+        date_inventaire:
+          type: string
+          format: date-time
+        codification:
+          $ref: '#/components/schemas/Codification'
+        periodeInventaire:
+          $ref: '#/components/schemas/PeriodeInventaire'
+        user:
+          $ref: '#/components/schemas/Users'

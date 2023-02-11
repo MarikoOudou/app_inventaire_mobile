@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:inventaire_immobilier/presentation/scanner/widgets/scanner_qr.dart';
 
 class ScannerScreen extends StatefulWidget {
   const ScannerScreen({
@@ -28,7 +29,7 @@ class ScannerScreenState extends State<ScannerScreen> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Center(child: Text('Text')),
+      child: ScannerQr(),
     );
   }
 }

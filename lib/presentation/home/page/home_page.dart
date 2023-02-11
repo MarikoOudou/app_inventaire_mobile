@@ -19,7 +19,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBarThemeCustom.appBar("Home", context,
-          backPage: true, statusBarColor: ColorTheme.darkgreen),
+          backPage: false, statusBarColor: ColorTheme.darkgreen),
       body: HomeScreen(homeBloc: _homeBloc),
     );
   }
