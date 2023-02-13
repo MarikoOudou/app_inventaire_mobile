@@ -48,7 +48,9 @@ dependencies:
   flutter_barcode_sdk: ^2.2.0
   select_form_field: ^2.2.0
   art_sweetalert: ^0.0.5
-  # intl: ^0.17.0
+  intl: ^0.17.0
+  openapi:
+    path: ../openapi
 
 dev_dependencies:
   flutter_test:

@@ -19,7 +19,9 @@ class _InventairePageState extends State<InventairePage> {
     return Scaffold(
       appBar: AppBarThemeCustom.appBar("Inventaire", context,
           backPage: false, statusBarColor: ColorTheme.darkgreen),
-      body: InventaireScreen(inventaireBloc: _inventaireBloc),
+      body: SingleChildScrollView(
+        child: InventaireScreen(inventaireBloc: _inventaireBloc),
+      ) ,
     );
   }
 }

@@ -11,12 +11,12 @@ void main() {
 
 final AppRouter _appRouter = AppRouter();
 
-@Openapi(
-    additionalProperties:
-        AdditionalProperties(pubName: 'petstore_api', pubAuthor: 'Johnny dep'),
-    inputSpecFile: 'openapi.yaml',
-    generatorName: Generator.dart,
-    outputDirectory: 'api/petstore_api')
+// @Openapi(
+//     additionalProperties:
+//         AdditionalProperties(pubName: 'petstore_api', pubAuthor: 'Johnny dep'),
+//     inputSpecFile: 'openapi.yaml',
+//     generatorName: Generator.dart,
+//     outputDirectory: 'api/petstore_api')
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
