@@ -93,30 +93,30 @@ class HomeScreenState extends State<HomeScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Column(
-                children: [
-                  Card(
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: ColorTheme.white,
-                        borderRadius: BorderRadius.circular(8),
-                        // border: Border.all(
-                        //   color: ColorTheme.secondary,
-                        //   width: 2,
-                        // )
-                      ),
-                      child: ListTile(
-                        leading: widgetLogo(),
-                        title: Text('Fullname'),
-                        subtitle: Text('Fonction'),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-              SizedBox(
-                height: 25,
-              ),
+              // Column(
+              //   children: [
+              //     Card(
+              //       child: Container(
+              //         decoration: BoxDecoration(
+              //           color: ColorTheme.white,
+              //           borderRadius: BorderRadius.circular(8),
+              //           // border: Border.all(
+              //           //   color: ColorTheme.secondary,
+              //           //   width: 2,
+              //           // )
+              //         ),
+              //         child: ListTile(
+              //           leading: widgetLogo(),
+              //           title: Text('Fullname'),
+              //           subtitle: Text('Fonction'),
+              //         ),
+              //       ),
+              //     ),
+              //   ],
+              // ),
+              // SizedBox(
+              //   height: 25,
+              // ),
               // buttonSubmit(true),
               Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -124,7 +124,7 @@ class HomeScreenState extends State<HomeScreen> {
                 children: [
                   InkWell(
                     onTap: () {
-                      Navigator.pushNamed(context, '/scanner');
+                      Navigator.popAndPushNamed(context, '/inventaire');
                     },
                     splashColor: ColorTheme.primary,
                     child: Card(
@@ -157,40 +157,40 @@ class HomeScreenState extends State<HomeScreen> {
                       ),
                     ),
                   ),
-                  InkWell(
-                    splashColor: ColorTheme.primary,
-                    child: Card(
-                      child: Container(
-                        padding: EdgeInsets.all(5),
-                        height: 100,
-                        width: 100,
-                        decoration: BoxDecoration(
-                            color: ColorTheme.darkgreen,
-                            borderRadius: BorderRadius.circular(8),
-                            border: Border.all(
-                              color: ColorTheme.secondary,
-                              width: 2,
-                            )),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Icon(
-                              Icons.document_scanner,
-                              size: 50,
-                              color: ColorTheme.primary,
-                            ),
-                            Text(
-                              "Voir Mes Scanner",
-                              style: TextStyle(
-                                  color: ColorTheme.primary, fontSize: 10),
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
+                  // InkWell(
+                  //   splashColor: ColorTheme.primary,
+                  //   child: Card(
+                  //     child: Container(
+                  //       padding: EdgeInsets.all(5),
+                  //       height: 100,
+                  //       width: 100,
+                  //       decoration: BoxDecoration(
+                  //           color: ColorTheme.darkgreen,
+                  //           borderRadius: BorderRadius.circular(8),
+                  //           border: Border.all(
+                  //             color: ColorTheme.secondary,
+                  //             width: 2,
+                  //           )),
+                  //       child: Column(
+                  //         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  //         crossAxisAlignment: CrossAxisAlignment.center,
+                  //         mainAxisSize: MainAxisSize.max,
+                  //         children: [
+                  //           Icon(
+                  //             Icons.document_scanner,
+                  //             size: 50,
+                  //             color: ColorTheme.primary,
+                  //           ),
+                  //           Text(
+                  //             "Voir Mes Scanner",
+                  //             style: TextStyle(
+                  //                 color: ColorTheme.primary, fontSize: 10),
+                  //           )
+                  //         ],
+                  //       ),
+                  //     ),
+                  //   ),
+                  // ),
                 ],
               ),
             ],

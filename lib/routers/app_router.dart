@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:inventaire_immobilier/presentation/auth/login/page/login_page.dart';
 import 'package:inventaire_immobilier/presentation/home/page/home_page.dart';
+import 'package:inventaire_immobilier/presentation/inventaire/page/inventaire_page.dart';
 import 'package:inventaire_immobilier/presentation/scanner/page/scanner_page.dart';
 
 class AppRouter {
@@ -20,6 +21,11 @@ class AppRouter {
       case '/scanner':
         return MaterialPageRoute(builder: (BuildContext context) {
           return ScannerPage();
+        });
+
+      case '/inventaire':
+        return MaterialPageRoute(builder: (BuildContext context) {
+          return InventairePage();
         });
 
       // case '/singIn':

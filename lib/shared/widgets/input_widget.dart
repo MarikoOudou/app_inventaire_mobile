@@ -35,13 +35,13 @@ class input_widget extends StatelessWidget {
         decoration: InputDecoration(
             // enabledBorder: InputBorder.none,
             // border: InputBorder.none,
-            prefixIcon: const Icon(
-              Icons.email_outlined,
-              size: 20,
-            ),
+            // prefixIcon: const Icon(
+            //   Icons.email_outlined,
+            //   size: 20,
+            // ),
             border: OutlineInputBorder(
               // gapPadding: 1,
-              borderRadius: BorderRadius.circular(30.0),
+              borderRadius: BorderRadius.circular(10.0),
             ),
             filled: true,
             // hintStyle: TextStyle(color: Colors.grey[800]),

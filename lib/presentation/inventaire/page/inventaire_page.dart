@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:inventaire_immobilier/presentation/inventaire/logic/bloc/inventaire_bloc.dart';
 import 'package:inventaire_immobilier/presentation/inventaire/screen/inventaire_screen.dart';
+import 'package:inventaire_immobilier/shared/themes/ColorsTheme.dart';
+import 'package:inventaire_immobilier/shared/widgets/AppBarTheme.dart';
 
 class InventairePage extends StatefulWidget {
   static const String routeName = '/inventaire';
@@ -15,9 +17,8 @@ class _InventairePageState extends State<InventairePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Inventaire'),
-      ),
+      appBar: AppBarThemeCustom.appBar("Inventaire", context,
+          backPage: false, statusBarColor: ColorTheme.darkgreen),
       body: InventaireScreen(inventaireBloc: _inventaireBloc),
     );
   }
