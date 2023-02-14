@@ -1,1 +1,1 @@
-final URL_API = "http://localhost:8080/";
+final URL_API = "http://192.168.86.25:8080";

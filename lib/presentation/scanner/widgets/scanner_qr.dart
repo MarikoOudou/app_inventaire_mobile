@@ -67,8 +67,8 @@ class _ScannerQrState extends State<ScannerQr> {
 
       // }
 
-      // Navigator.pushNamedAndRemoveUntil(context, '/paiements', (route) => false,
-      //     arguments: scanData);
+      Navigator.pushNamedAndRemoveUntil(context, '/inventaire', (route) => false,
+          arguments: scanData);
     });
   }
 

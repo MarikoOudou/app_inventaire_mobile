@@ -15,7 +15,7 @@ final AppRouter _appRouter = AppRouter();
 @Openapi(
     additionalProperties:
         AdditionalProperties(pubName: 'api_inventaire', pubAuthor: 'Mariko'),
-    inputSpecFile: 'openapi.yaml',
+    inputSpecFile: 'http://192.168.86.25:8080/v3/api-docs',
     generatorName: Generator.dart,
     outputDirectory: 'api_inventaire')
 class MyApp extends StatelessWidget {

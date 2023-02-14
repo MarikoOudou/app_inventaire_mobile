@@ -3,6 +3,7 @@ class StorageKeys {
   static final String id = "COOKIE";
 
   static final String login = "LOGIN";
+  static final String fullname = "FULLNAME";
   static final String senha = "SENHA";
 
   static final String phone = "PHONE";

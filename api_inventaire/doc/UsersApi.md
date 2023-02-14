@@ -5,7 +5,7 @@
 import 'package:api_inventaire/api.dart';
 ```
 
-All URIs are relative to *http://localhost:8080*
+All URIs are relative to *http://192.168.86.25:8080*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -136,7 +136,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getUserByEmail**
-> Object getUserByEmail(users)
+> ResponseData getUserByEmail(users)
 
 Get User By Email
 
@@ -163,7 +163,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Object**](Object.md)
+[**ResponseData**](ResponseData.md)
 
 ### Authorization
 

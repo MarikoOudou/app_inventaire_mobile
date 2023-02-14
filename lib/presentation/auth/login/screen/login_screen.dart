@@ -1,4 +1,5 @@
 import 'package:api_inventaire/api.dart';
+import 'package:art_sweetalert/art_sweetalert.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:inventaire_immobilier/presentation/auth/login/data/services/usersService.dart';
@@ -26,15 +27,15 @@ class LoginScreen extends StatefulWidget {
 class LoginScreenState extends State<LoginScreen> {
   TextEditingController _email_controller = TextEditingController();
   // UsersApi _usersApi;
-  final UserService _userService = new UserService();
-  UsersApi _user = new UsersApi();
+  // final UserService _userService = new UserService();
+  // UsersApi _user = new UsersApi();
 
-  getAllUsers() async {
-    // print('users');
+  // getAllUsers() async {
+  //   // print('users');
 
-    List<Users>? users = await _userService.usersApi.getAll();
-    print(users?.length);
-  }
+  //   List<Users>? users = await _userService.usersApi.getAll();
+  //   print(users?.length);
+  // }
 
   LoginScreenState();
 
@@ -59,44 +60,46 @@ class LoginScreenState extends State<LoginScreen> {
           BuildContext context,
           LoginState currentState,
         ) {
-          if (currentState is UnLoginState) {
+          if (currentState is LoginLoading) {
             return const Center(
               child: CircularProgressIndicator(),
             );
           }
           if (currentState is ErrorLoginState) {
-            return Center(
-                child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                const Text('Error'),
-                const Padding(
-                  padding: EdgeInsets.only(top: 32.0),
-                  // child: button(
-                  //   // color: Colors.blue,
-                  //   child: Text('reload'),
-                  //   onPressed: _load,
-                  // ),
-                ),
-              ],
-            ));
+            WidgetsBinding.instance.addPostFrameCallback((_) {
+              ArtSweetAlert.show(
+                  context: context,
+                  artDialogArgs: ArtDialogArgs(
+                      type: ArtSweetAlertType.danger,
+                      // onConfirm: () {
+                      //   print('object');
+                      // },
+                      confirmButtonText: 'Retour',
+                      title: "Erreur d'authentification",
+                      text: ""));
+            });
           }
           if (currentState is InLoginState) {
-            return Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Text('Hello'),
-                ],
-              ),
-            );
+            WidgetsBinding.instance.addPostFrameCallback((_) {
+              Navigator.pushNamedAndRemoveUntil(
+                  context, "/home", (route) => false);
+            });
+
+            // return Center(
+            //   child: Column(
+            //     mainAxisAlignment: MainAxisAlignment.center,
+            //     children: <Widget>[
+            //       Text('Hello'),
+            //     ],
+            //   ),
+            // );
           }
           return body(size);
         });
   }
 
   void _load() {
-    widget._loginBloc.add(LoadLoginEvent());
+    // widget._loginBloc.add(LoadLoginEvent());
   }
 
   Widget body(Size size) {
@@ -147,7 +150,7 @@ class LoginScreenState extends State<LoginScreen> {
             //   validator();
             // });
 
-            print(p0);
+            // print(p0);
           },
           controller: _email_controller,
           textInputType: TextInputType.emailAddress,
@@ -162,14 +165,12 @@ class LoginScreenState extends State<LoginScreen> {
           ? null
           : (() {
               print(_email_controller.text);
-              // print('object');
-              // getAllUsers();
-
-              // Navigator.pushNamedAndRemoveUntil(
-              //     context, "/home", (route) => false);
+              widget._loginBloc
+                  .add(SendDataLoginEvent(email: _email_controller.text));
             }),
-      child: Padding(
-        padding: EdgeInsets.all(13),
+      // ignore: sort_child_properties_last
+      child: const Padding(
+        padding: const EdgeInsets.all(13),
         child: Text('Se connecter',
             style: TextStyle(
                 // color: ColorTheme.primary,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:inventaire_immobilier/presentation/auth/login/data/repository/usersRepository.dart';
 import 'package:inventaire_immobilier/presentation/auth/login/screen/login_screen.dart';
 import 'package:inventaire_immobilier/shared/widgets/AppBarTheme.dart';
 
@@ -13,7 +14,8 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  final _loginBloc = LoginBloc();
+
+  final _loginBloc = LoginBloc(usersRepository: new UsersRepository());
 
   @override
   Widget build(BuildContext context) {

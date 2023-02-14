@@ -5,6 +5,8 @@ abstract class LoginState {}
 
 class LoginInitial extends LoginState {}
 
+class LoginLoading extends LoginState {}
+
 class UnLoginState extends LoginState {}
 
 class ErrorLoginState extends LoginState {
@@ -15,10 +17,11 @@ class ErrorLoginState extends LoginState {
 }
 
 class InLoginState extends LoginState {
-  final Object user;
+  final Users user;
   InLoginState(
     this.user,
   ) {
-    // Storage.set(StorageKeys.id, this.user.id);
+    Storage.set(StorageKeys.id, this.user.userId.toString());
+    Storage.set(StorageKeys.fullname, this.user.fullname?.toUpperCase());
   }
 }

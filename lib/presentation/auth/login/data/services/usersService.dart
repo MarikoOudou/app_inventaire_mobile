@@ -1,4 +1,5 @@
 import 'package:api_inventaire/api.dart';
+import 'package:inventaire_immobilier/shared/constants/environnement.dart';
 
 class UserService {
   ApiClient _client = new ApiClient();
@@ -6,7 +7,7 @@ class UserService {
   UsersApi get usersApi => _userApi;
 
   UserService() {
-    _client = ApiClient(basePath: "http://192.168.1.66:8080");
+    _client = ApiClient(basePath: URL_API);
     _userApi = UsersApi(_client);
   }
 

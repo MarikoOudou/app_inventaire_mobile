@@ -47,7 +47,7 @@ dependencies:
   http: ^0.13.5
   permission_handler: ^10.2.0
   qr_code_scanner: ^1.0.1
-  flutter_barcode_sdk: ^2.2.0
+  # flutter_barcode_sdk: ^2.2.0
   select_form_field: ^2.2.0
   art_sweetalert: ^0.0.5
   intl: ^0.17.0
@@ -56,7 +56,7 @@ dependencies:
     path: ./api_inventaire
 
 dependency_overrides:
-  analyzer: 1.0.0
+  # analyzer: 1.0.0
 
   # openapi_generator_annotations:
   #   path: ./api_inventaire

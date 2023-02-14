@@ -35,6 +35,7 @@ part 'api/users_api.dart';
 part 'model/codification.dart';
 part 'model/inventaire.dart';
 part 'model/periode_inventaire.dart';
+part 'model/response_data.dart';
 part 'model/users.dart';
 
 

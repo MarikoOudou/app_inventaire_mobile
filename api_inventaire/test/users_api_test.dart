@@ -40,7 +40,7 @@ void main() {
 
     // Get User By Email
     //
-    //Future<Object> getUserByEmail(Users users) async
+    //Future<ResponseData> getUserByEmail(Users users) async
     test('test getUserByEmail', () async {
       // TODO
     });
