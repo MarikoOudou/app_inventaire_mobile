@@ -37,6 +37,8 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   openapi_generator: ^4.0.0
+  # path: ./api_inventaire
+
   build_runner:
   flutter_bloc: ^8.1.1
   connectivity_plus: ^2.3.9
@@ -49,13 +51,22 @@ dependencies:
   select_form_field: ^2.2.0
   art_sweetalert: ^0.0.5
   intl: ^0.17.0
-  openapi:
-    path: ../openapi
+  # openapi_generator_annotations: ^1.1.4
+  api_inventaire:
+    path: ./api_inventaire
+
+dependency_overrides:
+  analyzer: 1.0.0
+
+  # openapi_generator_annotations:
+  #   path: ./api_inventaire
+  # openapi_generator:
+  #   path: ./api_inventaire
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-
+  # openapi_generator: ^1.1.4
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
   # activated in the `analysis_options.yaml` file located at the root of your

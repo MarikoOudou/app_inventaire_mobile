@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:inventaire_immobilier/presentation/auth/login/data/services/usersService.dart';
 import 'package:inventaire_immobilier/routers/app_router.dart';
 import 'package:inventaire_immobilier/shared/themes/AppTheme.dart';
 import 'package:inventaire_immobilier/shared/themes/ColorsTheme.dart';
@@ -11,12 +12,12 @@ void main() {
 
 final AppRouter _appRouter = AppRouter();
 
-// @Openapi(
-//     additionalProperties:
-//         AdditionalProperties(pubName: 'petstore_api', pubAuthor: 'Johnny dep'),
-//     inputSpecFile: 'openapi.yaml',
-//     generatorName: Generator.dart,
-//     outputDirectory: 'api/petstore_api')
+@Openapi(
+    additionalProperties:
+        AdditionalProperties(pubName: 'api_inventaire', pubAuthor: 'Mariko'),
+    inputSpecFile: 'openapi.yaml',
+    generatorName: Generator.dart,
+    outputDirectory: 'api_inventaire')
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 

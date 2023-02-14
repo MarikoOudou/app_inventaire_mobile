@@ -56,7 +56,7 @@ paths:
       tags:
         - Periode Inventaire
       summary: Get by id
-      operationId: getByCodeLocalisation
+      operationId: getByIdPeriodeInventaire
       parameters:
         - name: id
           in: path
@@ -75,7 +75,7 @@ paths:
       tags:
         - Periode Inventaire
       summary: Update periode inentaire
-      operationId: update_1
+      operationId: updatePeriodeInventaire
       parameters:
         - name: id
           in: path
@@ -101,7 +101,7 @@ paths:
       tags:
         - Inventaire
       summary: Get by id
-      operationId: getByCodeLocalisation_1
+      operationId: getByIdInventaire
       parameters:
         - name: id
           in: path
@@ -120,7 +120,7 @@ paths:
       tags:
         - Inventaire
       summary: Update inventaire
-      operationId: update_2
+      operationId: updateInventaire
       parameters:
         - name: id
           in: path
@@ -186,12 +186,31 @@ paths:
             application/json:
               schema:
                 type: object
+  /user/email:
+    post:
+      tags:
+        - Users
+      summary: Get User By Email
+      operationId: getUserByEmail
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Users'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
   /periodeinentaire:
     get:
       tags:
         - Periode Inventaire
       summary: Get All periode inentaire
-      operationId: getAll_1
+      operationId: getAllPeriodeInventaire
       responses:
         '200':
           description: OK
@@ -203,7 +222,7 @@ paths:
       tags:
         - Periode Inventaire
       summary: Create periode inentaire
-      operationId: create_1
+      operationId: createPeriodeInventaire
       requestBody:
         content:
           application/json:
@@ -222,7 +241,7 @@ paths:
       tags:
         - Inventaire
       summary: Create inventaire
-      operationId: create_2
+      operationId: createInventaire
       requestBody:
         content:
           application/json:
@@ -241,7 +260,7 @@ paths:
       tags:
         - Codification
       summary: Get All Codification
-      operationId: getCodification
+      operationId: getAllCodification
       responses:
         '200':
           description: OK
@@ -308,7 +327,7 @@ paths:
       tags:
         - Inventaire
       summary: Get All inventaires
-      operationId: getAll_2
+      operationId: getAll_1
       responses:
         '200':
           description: OK
@@ -336,12 +355,51 @@ paths:
             application/json:
               schema:
                 type: object
-  /codifications/{code_localisation}:
+  /codifications/{id}:
+    get:
+      tags:
+        - Codification
+      summary: Get By id
+      operationId: getByIdCodification
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+  /codifications/n_inventaire/{n_inventaire}:
+    get:
+      tags:
+        - Codification
+      summary: Get by n° inventaire
+      operationId: getByNInventaireCodification
+      parameters:
+        - name: n_inventaire
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+  /codifications/code_localisation/{code_localisation}:
     get:
       tags:
         - Codification
       summary: Get by code_localisation
-      operationId: getByCodeLocalisation_2
+      operationId: getByCodeLocalisationCodification
       parameters:
         - name: code_localisation
           in: path
@@ -390,14 +448,20 @@ components:
           type: string
           format: date-time
     Codification:
+      required:
+        - n_inventaire
       type: object
       properties:
         id_codification:
           type: integer
           format: int64
+        n_inventaire:
+          type: string
         code_guichet:
           type: string
         departement:
+          type: string
+        n_serie:
           type: string
         direction:
           type: string
@@ -405,7 +469,7 @@ components:
           type: string
         libelle_famille:
           type: string
-        libelle_famille_1:
+        sous_libelle_famille:
           type: string
         niveau:
           type: string
@@ -425,10 +489,6 @@ components:
         id_inventaire:
           type: integer
           format: int64
-        n_inventaire:
-          type: string
-        n_serie:
-          type: string
         etat:
           type: string
         nom_agent:
@@ -442,5 +502,3 @@ components:
           $ref: '#/components/schemas/Codification'
         periodeInventaire:
           $ref: '#/components/schemas/PeriodeInventaire'
-        user:
-          $ref: '#/components/schemas/Users'

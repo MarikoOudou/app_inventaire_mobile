@@ -1,5 +1,7 @@
+import 'package:api_inventaire/api.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:inventaire_immobilier/presentation/auth/login/data/services/usersService.dart';
 import 'package:inventaire_immobilier/shared/themes/ColorsTheme.dart';
 
 import '../../../../shared/widgets/input_widget.dart';
@@ -23,6 +25,16 @@ class LoginScreen extends StatefulWidget {
 
 class LoginScreenState extends State<LoginScreen> {
   TextEditingController _email_controller = TextEditingController();
+  // UsersApi _usersApi;
+  final UserService _userService = new UserService();
+  UsersApi _user = new UsersApi();
+
+  getAllUsers() async {
+    // print('users');
+
+    List<Users>? users = await _userService.usersApi.getAll();
+    print(users?.length);
+  }
 
   LoginScreenState();
 
@@ -149,8 +161,12 @@ class LoginScreenState extends State<LoginScreen> {
       onPressed: disable
           ? null
           : (() {
-              Navigator.pushNamedAndRemoveUntil(
-                  context, "/home", (route) => false);
+              print(_email_controller.text);
+              // print('object');
+              // getAllUsers();
+
+              // Navigator.pushNamedAndRemoveUntil(
+              //     context, "/home", (route) => false);
             }),
       child: Padding(
         padding: EdgeInsets.all(13),

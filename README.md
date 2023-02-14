@@ -15,4 +15,6 @@ For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
 
+java -jar openapi-generator-cli-6.3.0.jar -i openapi.yaml -g dart-dio -o api
+
 flutter pub run build_runner build --delete-conflicting-outputs"# app_inventaire_mobile" 
