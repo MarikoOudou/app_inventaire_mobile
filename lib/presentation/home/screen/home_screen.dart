@@ -124,7 +124,9 @@ class HomeScreenState extends State<HomeScreen> {
                 children: [
                   InkWell(
                     onTap: () {
-                      Navigator.pushNamed(context, '/scanner');
+                      // Navigator.pushNamed(context, '/scanner');
+                      Navigator.pushNamed(context, '/inventaire',
+                          arguments: "INV001");
                     },
                     splashColor: ColorTheme.primary,
                     child: Card(

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:inventaire_immobilier/presentation/auth/login/data/services/usersService.dart';
 import 'package:inventaire_immobilier/routers/app_router.dart';
+import 'package:inventaire_immobilier/shared/constants/environnement.dart';
 import 'package:inventaire_immobilier/shared/themes/AppTheme.dart';
 import 'package:inventaire_immobilier/shared/themes/ColorsTheme.dart';
 import 'package:openapi_generator_annotations/openapi_generator_annotations.dart';
@@ -15,7 +16,7 @@ final AppRouter _appRouter = AppRouter();
 @Openapi(
     additionalProperties:
         AdditionalProperties(pubName: 'api_inventaire', pubAuthor: 'Mariko'),
-    inputSpecFile: 'http://192.168.86.25:8080/v3/api-docs',
+    inputSpecFile: '$URL_API/v3/api-docs',
     generatorName: Generator.dart,
     outputDirectory: 'api_inventaire')
 class MyApp extends StatelessWidget {

@@ -56,7 +56,11 @@ class AppRouter {
 
       case '/inventaire':
         return MaterialPageRoute(builder: (BuildContext context) {
-          return InventairePage();
+          return BlocProvider(
+              create: (__) => InventaireBloc(),
+              child: InventairePage(
+                dataToScan: settings.arguments.toString(),
+              ));
         });
 
       // case '/singIn':

@@ -13,7 +13,6 @@ class InventaireScreen extends StatefulWidget {
         super(key: key);
 
   final InventaireBloc _inventaireBloc;
-
   @override
   InventaireScreenState createState() {
     return InventaireScreenState();

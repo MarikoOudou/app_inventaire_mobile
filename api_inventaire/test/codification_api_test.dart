@@ -54,7 +54,7 @@ void main() {
 
     // Get by n° inventaire
     //
-    //Future<Object> getByNInventaireCodification(String nInventaire) async
+    //Future<ResponseData> getByNInventaireCodification(String nInventaire) async
     test('test getByNInventaireCodification', () async {
       // TODO
     });

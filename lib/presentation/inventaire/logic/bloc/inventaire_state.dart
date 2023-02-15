@@ -7,6 +7,16 @@ class InventaireInitial extends InventaireState {}
 
 class UnInventaireState extends InventaireState {}
 
-class ErrorInventaireState extends InventaireState {}
+class ErrorInventaireState extends InventaireState {
+  final Object errorMessage;
+  ErrorInventaireState({
+    required this.errorMessage,
+  });
+}
 
-class InInventaireState extends InventaireState {}
+class InInventaireState extends InventaireState {
+  Codification codification;
+  InInventaireState({
+    required this.codification,
+  });
+}

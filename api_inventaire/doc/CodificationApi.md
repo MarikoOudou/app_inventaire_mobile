@@ -5,7 +5,7 @@
 import 'package:api_inventaire/api.dart';
 ```
 
-All URIs are relative to *http://192.168.86.25:8080*
+All URIs are relative to *http://192.168.1.66:8080*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -220,7 +220,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getByNInventaireCodification**
-> Object getByNInventaireCodification(nInventaire)
+> ResponseData getByNInventaireCodification(nInventaire)
 
 Get by n° inventaire
 
@@ -247,7 +247,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Object**](Object.md)
+[**ResponseData**](ResponseData.md)
 
 ### Authorization
 
