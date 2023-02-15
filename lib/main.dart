@@ -17,6 +17,7 @@ final AppRouter _appRouter = AppRouter();
     additionalProperties:
         AdditionalProperties(pubName: 'api_inventaire', pubAuthor: 'Mariko'),
     inputSpecFile: '$URL_API/v3/api-docs',
+    alwaysRun: true,
     generatorName: Generator.dart,
     outputDirectory: 'api_inventaire')
 class MyApp extends StatelessWidget {

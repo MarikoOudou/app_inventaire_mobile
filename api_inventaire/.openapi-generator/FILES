@@ -1,5 +1,4 @@
 .gitignore
-.openapi-generator-ignore
 .travis.yml
 README.md
 analysis_options.yaml
@@ -10,6 +9,7 @@ doc/InventaireApi.md
 doc/PeriodeInventaire.md
 doc/PeriodeInventaireApi.md
 doc/ResponseData.md
+doc/ResponseDataPeriodeInventaire.md
 doc/Users.md
 doc/UsersApi.md
 git_push.sh
@@ -30,14 +30,7 @@ lib/model/codification.dart
 lib/model/inventaire.dart
 lib/model/periode_inventaire.dart
 lib/model/response_data.dart
+lib/model/response_data_periode_inventaire.dart
 lib/model/users.dart
 pubspec.yaml
-test/codification_api_test.dart
-test/codification_test.dart
-test/inventaire_api_test.dart
-test/inventaire_test.dart
-test/periode_inventaire_api_test.dart
-test/periode_inventaire_test.dart
-test/response_data_test.dart
-test/users_api_test.dart
-test/users_test.dart
+test/response_data_periode_inventaire_test.dart

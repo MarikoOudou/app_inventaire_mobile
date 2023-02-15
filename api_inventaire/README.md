@@ -54,7 +54,7 @@ try {
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *http://192.168.1.66:8080*
+All URIs are relative to *http://192.168.86.25:8080*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
@@ -70,10 +70,11 @@ Class | Method | HTTP request | Description
 *InventaireApi* | [**getByIdInventaire**](doc\/InventaireApi.md#getbyidinventaire) | **GET** /inventaire/{id} | Get by id
 *InventaireApi* | [**getByPeriode**](doc\/InventaireApi.md#getbyperiode) | **GET** /inventaires/{id_periode_inventaire} | Get All inventaires by periode
 *InventaireApi* | [**updateInventaire**](doc\/InventaireApi.md#updateinventaire) | **PUT** /inventaire/{id} | Update inventaire
-*PeriodeInventaireApi* | [**createPeriodeInventaire**](doc\/PeriodeInventaireApi.md#createperiodeinventaire) | **POST** /periodeinentaire | Create periode inentaire
-*PeriodeInventaireApi* | [**getAllPeriodeInventaire**](doc\/PeriodeInventaireApi.md#getallperiodeinventaire) | **GET** /periodeinentaire | Get All periode inentaire
+*PeriodeInventaireApi* | [**createPeriodeInventaire**](doc\/PeriodeInventaireApi.md#createperiodeinventaire) | **POST** /periodeinentaire | Create periode inventaire
+*PeriodeInventaireApi* | [**getAllPeriodeInventaire**](doc\/PeriodeInventaireApi.md#getallperiodeinventaire) | **GET** /periodeinentaire | Get All periode inventaire
 *PeriodeInventaireApi* | [**getByIdPeriodeInventaire**](doc\/PeriodeInventaireApi.md#getbyidperiodeinventaire) | **GET** /periodeinentaire/{id} | Get by id
-*PeriodeInventaireApi* | [**updatePeriodeInventaire**](doc\/PeriodeInventaireApi.md#updateperiodeinventaire) | **PUT** /periodeinentaire/{id} | Update periode inentaire
+*PeriodeInventaireApi* | [**getPeriodeInventaireIsActive**](doc\/PeriodeInventaireApi.md#getperiodeinventaireisactive) | **GET** /periodeinentaire/isactive | Get periode inventaire is active
+*PeriodeInventaireApi* | [**updatePeriodeInventaire**](doc\/PeriodeInventaireApi.md#updateperiodeinventaire) | **PUT** /periodeinentaire/{id} | Update periode inventaire
 *UsersApi* | [**create**](doc\/UsersApi.md#create) | **POST** /user | Create user
 *UsersApi* | [**getAll**](doc\/UsersApi.md#getall) | **GET** /users | Get All user
 *UsersApi* | [**getById**](doc\/UsersApi.md#getbyid) | **GET** /user/{users_id} | Get user by id
@@ -87,6 +88,7 @@ Class | Method | HTTP request | Description
  - [Inventaire](doc\/Inventaire.md)
  - [PeriodeInventaire](doc\/PeriodeInventaire.md)
  - [ResponseData](doc\/ResponseData.md)
+ - [ResponseDataPeriodeInventaire](doc\/ResponseDataPeriodeInventaire.md)
  - [Users](doc\/Users.md)
 
 

@@ -5,20 +5,21 @@
 import 'package:api_inventaire/api.dart';
 ```
 
-All URIs are relative to *http://192.168.1.66:8080*
+All URIs are relative to *http://192.168.86.25:8080*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createPeriodeInventaire**](PeriodeInventaireApi.md#createperiodeinventaire) | **POST** /periodeinentaire | Create periode inentaire
-[**getAllPeriodeInventaire**](PeriodeInventaireApi.md#getallperiodeinventaire) | **GET** /periodeinentaire | Get All periode inentaire
+[**createPeriodeInventaire**](PeriodeInventaireApi.md#createperiodeinventaire) | **POST** /periodeinentaire | Create periode inventaire
+[**getAllPeriodeInventaire**](PeriodeInventaireApi.md#getallperiodeinventaire) | **GET** /periodeinentaire | Get All periode inventaire
 [**getByIdPeriodeInventaire**](PeriodeInventaireApi.md#getbyidperiodeinventaire) | **GET** /periodeinentaire/{id} | Get by id
-[**updatePeriodeInventaire**](PeriodeInventaireApi.md#updateperiodeinventaire) | **PUT** /periodeinentaire/{id} | Update periode inentaire
+[**getPeriodeInventaireIsActive**](PeriodeInventaireApi.md#getperiodeinventaireisactive) | **GET** /periodeinentaire/isactive | Get periode inventaire is active
+[**updatePeriodeInventaire**](PeriodeInventaireApi.md#updateperiodeinventaire) | **PUT** /periodeinentaire/{id} | Update periode inventaire
 
 
 # **createPeriodeInventaire**
 > Object createPeriodeInventaire(periodeInventaire)
 
-Create periode inentaire
+Create periode inventaire
 
 ### Example
 ```dart
@@ -57,9 +58,9 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getAllPeriodeInventaire**
-> Object getAllPeriodeInventaire()
+> ResponseData getAllPeriodeInventaire()
 
-Get All periode inentaire
+Get All periode inventaire
 
 ### Example
 ```dart
@@ -80,7 +81,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**Object**](Object.md)
+[**ResponseData**](ResponseData.md)
 
 ### Authorization
 
@@ -134,10 +135,47 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **getPeriodeInventaireIsActive**
+> ResponseDataPeriodeInventaire getPeriodeInventaireIsActive()
+
+Get periode inventaire is active
+
+### Example
+```dart
+import 'package:api_inventaire/api.dart';
+
+final api_instance = PeriodeInventaireApi();
+
+try {
+    final result = api_instance.getPeriodeInventaireIsActive();
+    print(result);
+} catch (e) {
+    print('Exception when calling PeriodeInventaireApi->getPeriodeInventaireIsActive: $e\n');
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**ResponseDataPeriodeInventaire**](ResponseDataPeriodeInventaire.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **updatePeriodeInventaire**
 > Object updatePeriodeInventaire(id, periodeInventaire)
 
-Update periode inentaire
+Update periode inventaire
 
 ### Example
 ```dart

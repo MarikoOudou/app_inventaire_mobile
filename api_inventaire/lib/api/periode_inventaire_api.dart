@@ -16,7 +16,7 @@ class PeriodeInventaireApi {
 
   final ApiClient apiClient;
 
-  /// Create periode inentaire
+  /// Create periode inventaire
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -48,7 +48,7 @@ class PeriodeInventaireApi {
     );
   }
 
-  /// Create periode inentaire
+  /// Create periode inventaire
   ///
   /// Parameters:
   ///
@@ -68,7 +68,7 @@ class PeriodeInventaireApi {
     return null;
   }
 
-  /// Get All periode inentaire
+  /// Get All periode inventaire
   ///
   /// Note: This method returns the HTTP [Response].
   Future<Response> getAllPeriodeInventaireWithHttpInfo() async {
@@ -96,8 +96,8 @@ class PeriodeInventaireApi {
     );
   }
 
-  /// Get All periode inentaire
-  Future<Object?> getAllPeriodeInventaire() async {
+  /// Get All periode inventaire
+  Future<ResponseData?> getAllPeriodeInventaire() async {
     final response = await getAllPeriodeInventaireWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -106,7 +106,7 @@ class PeriodeInventaireApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Object',) as Object;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'ResponseData',) as ResponseData;
     
     }
     return null;
@@ -165,7 +165,51 @@ class PeriodeInventaireApi {
     return null;
   }
 
-  /// Update periode inentaire
+  /// Get periode inventaire is active
+  ///
+  /// Note: This method returns the HTTP [Response].
+  Future<Response> getPeriodeInventaireIsActiveWithHttpInfo() async {
+    // ignore: prefer_const_declarations
+    final path = r'/periodeinentaire/isactive';
+
+    // ignore: prefer_final_locals
+    Object? postBody;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    const contentTypes = <String>[];
+
+
+    return apiClient.invokeAPI(
+      path,
+      'GET',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  /// Get periode inventaire is active
+  Future<ResponseDataPeriodeInventaire?> getPeriodeInventaireIsActive() async {
+    final response = await getPeriodeInventaireIsActiveWithHttpInfo();
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'ResponseDataPeriodeInventaire',) as ResponseDataPeriodeInventaire;
+    
+    }
+    return null;
+  }
+
+  /// Update periode inventaire
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -200,7 +244,7 @@ class PeriodeInventaireApi {
     );
   }
 
-  /// Update periode inentaire
+  /// Update periode inventaire
   ///
   /// Parameters:
   ///
