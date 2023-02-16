@@ -194,7 +194,7 @@ class PeriodeInventaireApi {
   }
 
   /// Get periode inventaire is active
-  Future<ResponseDataPeriodeInventaire?> getPeriodeInventaireIsActive() async {
+  Future<ResponseData?> getPeriodeInventaireIsActive() async {
     final response = await getPeriodeInventaireIsActiveWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -203,7 +203,7 @@ class PeriodeInventaireApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'ResponseDataPeriodeInventaire',) as ResponseDataPeriodeInventaire;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'ResponseData',) as ResponseData;
     
     }
     return null;

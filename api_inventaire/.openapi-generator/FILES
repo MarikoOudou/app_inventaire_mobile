@@ -9,7 +9,6 @@ doc/InventaireApi.md
 doc/PeriodeInventaire.md
 doc/PeriodeInventaireApi.md
 doc/ResponseData.md
-doc/ResponseDataPeriodeInventaire.md
 doc/Users.md
 doc/UsersApi.md
 git_push.sh
@@ -30,6 +29,5 @@ lib/model/codification.dart
 lib/model/inventaire.dart
 lib/model/periode_inventaire.dart
 lib/model/response_data.dart
-lib/model/response_data_periode_inventaire.dart
 lib/model/users.dart
 pubspec.yaml

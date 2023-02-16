@@ -53,7 +53,7 @@ class InventaireApi {
   /// Parameters:
   ///
   /// * [Inventaire] inventaire (required):
-  Future<Object?> createInventaire(Inventaire inventaire,) async {
+  Future<ResponseData?> createInventaire(Inventaire inventaire,) async {
     final response = await createInventaireWithHttpInfo(inventaire,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -62,7 +62,7 @@ class InventaireApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Object',) as Object;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'ResponseData',) as ResponseData;
     
     }
     return null;

@@ -21,6 +21,8 @@ class InventaireScreen extends StatefulWidget {
 }
 
 class InventaireScreenState extends State<InventaireScreen> {
+  bool isActiveForm = false;
+
   InventaireScreenState();
 
   final List<Map<String, dynamic>> _items = [
@@ -79,6 +81,20 @@ class InventaireScreenState extends State<InventaireScreen> {
             );
           }
           if (currentState is ErrorInventaireState) {
+            WidgetsBinding.instance.addPostFrameCallback((_) {
+              ArtSweetAlert.show(
+                  context: context,
+                  artDialogArgs: ArtDialogArgs(
+                      type: ArtSweetAlertType.danger,
+                      // onConfirm: () {
+                      //   print('object');
+                      // },
+                      confirmButtonText: 'Retour',
+                      title: "Erreur",
+                      text: currentState.errorMessage.toString()));
+              // Navigator.pushNamedAndRemoveUntil(
+              //     context, "/home", (route) => false);
+            });
             return Center(
                 child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -105,20 +121,38 @@ class InventaireScreenState extends State<InventaireScreen> {
               ),
             );
           }
+          if (currentState is LoadDataForForm) {
+            _code_inventaire_controller = TextEditingController(
+                text: currentState.codification.nInventaire.toString());
+            return body(size);
+          }
           // return Center(
           //   child: CircularProgressIndicator(),
           // );
-          return body(size);
+          return SizedBox(
+            width: double.infinity,
+            height: size.height - 25,
+            child: Center(
+              child: TextButton.icon(
+                  onPressed: (() {
+                    Navigator.pop(context);
+                  }),
+                  icon: const Icon(Icons.arrow_back),
+                  label: const Text('RETOUR A L\'ACCUEIL')),
+            ),
+          );
         });
   }
 
   body(Size size) {
-    return Container(
-        color: ColorTheme.grey,
-        width: double.infinity,
-        height: size.height - 25,
-        padding: EdgeInsets.all(20),
-        child: Formulaire());
+    return SingleChildScrollView(
+      child: Container(
+          color: ColorTheme.grey,
+          width: double.infinity,
+          height: size.height - 25,
+          padding: EdgeInsets.all(20),
+          child: Formulaire()),
+    );
   }
 
   Formulaire() {
@@ -131,121 +165,82 @@ class InventaireScreenState extends State<InventaireScreen> {
           enabled: false,
           controller: _code_inventaire_controller,
           decoration: InputDecoration(
-
-              // enabledBorder: InputBorder.none,
-              // border: InputBorder.none,
-              // prefixIcon: const Icon(
-              //   Icons.email_outlined,
-              //   size: 20,
-              // ),
               border: OutlineInputBorder(
-                // gapPadding: 1,
                 borderRadius: BorderRadius.circular(10.0),
               ),
-              // filled: true,
-              // hintStyle: TextStyle(color: Colors.grey[800]),
-
-              // hintText: "Type in your text",
-
-              // label: Text("data"),
-              labelText: 'OBSERVATION',
-              alignLabelWithHint: false,
+              labelText: 'N° INVENTAIRE',
+              // alignLabelWithHint: false,
               floatingLabelAlignment: FloatingLabelAlignment.center,
               floatingLabelBehavior: FloatingLabelBehavior.auto,
-              labelStyle: TextStyle(),
-              hintTextDirection: TextDirection.ltr,
+              // labelStyle: TextStyle(),
+              // hintTextDirection: TextDirection.rtl,
               fillColor: Colors.white70),
         ),
-
         SizedBox(
           height: 20,
         ),
-
         TextField(
-          maxLines: 6, //or null
+          maxLines: 5, //or null
           controller: _observaton_controller,
+
+          onChanged: (value) {
+            setState(() {
+              if (!value.isEmpty) {
+                print(_observaton_controller.text);
+                // _observaton_controller.text = value;
+                if (!_etat_controller.text.isEmpty) {
+                  isActiveForm = true;
+                }
+              } else {
+                _observaton_controller.text = "";
+              }
+            });
+          },
           decoration: InputDecoration(
-              // enabledBorder: InputBorder.none,
-              // border: InputBorder.none,
-              // prefixIcon: const Icon(
-              //   Icons.email_outlined,
-              //   size: 20,
-              // ),
               border: OutlineInputBorder(
-                // gapPadding: 1,
                 borderRadius: BorderRadius.circular(10.0),
               ),
               filled: true,
-              // hintStyle: TextStyle(color: Colors.grey[800]),
-
-              // hintText: "Type in your text",
-
-              // label: Text("data"),
               labelText: 'OBSERVATION',
               alignLabelWithHint: false,
               floatingLabelAlignment: FloatingLabelAlignment.center,
               floatingLabelBehavior: FloatingLabelBehavior.auto,
               labelStyle: TextStyle(),
-              hintTextDirection: TextDirection.ltr,
+              // hintTextDirection: TextDirection.rtl,
               fillColor: Colors.white70),
         ),
-
-        // SizedBox(
-        //   height: 20,
-        // ),
-        // input_widget(
-        //   labelText: "Observation",
-        //   onChanged: (p0) {
-        //     // setState(() {
-        //     //   validator();
-        //     // });
-
-        //     print(p0);
-        //   },
-        //   controller: _etat_controller,
-        //   textInputType: TextInputType.name,
-        // ),
         SizedBox(
           height: 20,
         ),
         SelectFormField(
-          type: SelectFormFieldType.dropdown, // or can be dialog
-          // initialValue: 'circle',
-          // icon: Icon(Icons.format_shapes),
+          type: SelectFormFieldType.dropdown,
           controller: _etat_controller,
           decoration: InputDecoration(
-              // enabledBorder: InputBorder.none,
-              // border: InputBorder.none,
-              // prefixIcon: const Icon(
-              //   Icons.email_outlined,
-              //   size: 20,
-              // ),
               border: OutlineInputBorder(
-                // gapPadding: 1,
                 borderRadius: BorderRadius.circular(10.0),
               ),
               filled: true,
-              // hintStyle: TextStyle(color: Colors.grey[800]),
-
-              // hintText: "Type in your text",
-
-              // label: Text("data"),
               labelText: 'ETAT',
               alignLabelWithHint: false,
               floatingLabelAlignment: FloatingLabelAlignment.center,
               floatingLabelBehavior: FloatingLabelBehavior.auto,
               labelStyle: TextStyle(),
-              hintTextDirection: TextDirection.ltr,
+              // hintTextDirection: TextDirection.ltr,
               fillColor: Colors.white70),
-          // labelText: 'ETAT',
           items: _items,
-          onChanged: (val) => print(val),
-          onSaved: (val) => print(val),
+          onChanged: (val) {
+            setState(() {
+              print(_etat_controller.text);
+              if (!_etat_controller.text.isEmpty) {
+                isActiveForm = true;
+              }
+            });
+          },
         ),
         SizedBox(
           height: 15,
         ),
-        buttonSubmit(false)
+        buttonSubmit(!isActiveForm)
       ],
     ));
   }
@@ -257,6 +252,7 @@ class InventaireScreenState extends State<InventaireScreen> {
           : (() {
               // Navigator.pushNamedAndRemoveUntil(
               //     context, "/home", (route) => false);
+
               ArtSweetAlert.show(
                   context: context,
                   artDialogArgs: ArtDialogArgs(

@@ -5,7 +5,7 @@
 import 'package:api_inventaire/api.dart';
 ```
 
-All URIs are relative to *http://192.168.1.64:8080*
+All URIs are relative to *http://192.168.86.25:8080*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -18,7 +18,7 @@ Method | HTTP request | Description
 
 
 # **createInventaire**
-> Object createInventaire(inventaire)
+> ResponseData createInventaire(inventaire)
 
 Create inventaire
 
@@ -45,7 +45,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Object**](Object.md)
+[**ResponseData**](ResponseData.md)
 
 ### Authorization
 

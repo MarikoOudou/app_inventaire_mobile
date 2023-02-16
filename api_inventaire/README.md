@@ -54,7 +54,7 @@ try {
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *http://192.168.1.64:8080*
+All URIs are relative to *http://192.168.86.25:8080*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
@@ -89,7 +89,6 @@ Class | Method | HTTP request | Description
  - [Inventaire](doc\/Inventaire.md)
  - [PeriodeInventaire](doc\/PeriodeInventaire.md)
  - [ResponseData](doc\/ResponseData.md)
- - [ResponseDataPeriodeInventaire](doc\/ResponseDataPeriodeInventaire.md)
  - [Users](doc\/Users.md)
 
 

@@ -11,7 +11,7 @@
 part of openapi.api;
 
 class ApiClient {
-  ApiClient({this.basePath = 'http://192.168.1.64:8080', this.authentication});
+  ApiClient({this.basePath = 'http://192.168.86.25:8080', this.authentication});
 
   final String basePath;
 
@@ -198,8 +198,6 @@ class ApiClient {
           return PeriodeInventaire.fromJson(value);
         case 'ResponseData':
           return ResponseData.fromJson(value);
-        case 'ResponseDataPeriodeInventaire':
-          return ResponseDataPeriodeInventaire.fromJson(value);
         case 'Users':
           return Users.fromJson(value);
         default:

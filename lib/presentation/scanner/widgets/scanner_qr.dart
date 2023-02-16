@@ -63,13 +63,8 @@ class _ScannerQrState extends State<ScannerQr> {
 
       print("DATA TO SCAN : " + scanData.code.toString());
       controller.pauseCamera();
-
-      // if () {
-
-      // }
-
-      Navigator.pushNamedAndRemoveUntil(
-          context, '/inventaire', (route) => false,
+  
+      Navigator.popAndPushNamed(context, '/inventaire',
           arguments: scanData.code.toString());
     });
   }

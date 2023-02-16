@@ -8,15 +8,24 @@ class InventaireInitial extends InventaireState {}
 class UnInventaireState extends InventaireState {}
 
 class ErrorInventaireState extends InventaireState {
-  final Object errorMessage;
+  final String errorMessage;
   ErrorInventaireState({
     required this.errorMessage,
   });
 }
 
-class InInventaireState extends InventaireState {
+class LoadDataForForm extends InventaireState {
   Codification codification;
-  InInventaireState({
+  PeriodeInventaire periodeInventaire;
+  LoadDataForForm({
     required this.codification,
+    required this.periodeInventaire,
+  });
+}
+
+class InInventaireState extends InventaireState {
+  Inventaire inventaire;
+  InInventaireState({
+    required this.inventaire,
   });
 }

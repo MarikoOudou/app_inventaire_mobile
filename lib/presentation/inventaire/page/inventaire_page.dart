@@ -23,13 +23,11 @@ class _InventairePageState extends State<InventairePage> {
 
   @override
   Widget build(BuildContext context) {
-    // _inventaireBloc.add(InventaireEventData(n_inventaire: widget.dataToScan));
+    _inventaireBloc.add(InventaireEventData(n_inventaire: widget.dataToScan));
     return Scaffold(
       appBar: AppBarThemeCustom.appBar("Inventaire", context,
           backPage: false, statusBarColor: ColorTheme.darkgreen),
-      body: SingleChildScrollView(
-        child: InventaireScreen(inventaireBloc: _inventaireBloc),
-      ),
+      body: InventaireScreen(inventaireBloc: _inventaireBloc),
     );
   }
 }
