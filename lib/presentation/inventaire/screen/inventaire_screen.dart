@@ -2,6 +2,7 @@ import 'package:art_sweetalert/art_sweetalert.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:inventaire_immobilier/presentation/inventaire/logic/bloc/inventaire_bloc.dart';
+import 'package:inventaire_immobilier/shared/themes/ColorsTheme.dart';
 import 'package:inventaire_immobilier/shared/widgets/input_widget.dart';
 import 'package:select_form_field/select_form_field.dart';
 
@@ -60,6 +61,8 @@ class InventaireScreenState extends State<InventaireScreen> {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
+
     return BlocBuilder<InventaireBloc, InventaireState>(
         bloc: widget._inventaireBloc,
         builder: (
@@ -67,8 +70,12 @@ class InventaireScreenState extends State<InventaireScreen> {
           InventaireState currentState,
         ) {
           if (currentState is UnInventaireState) {
-            return Center(
-              child: CircularProgressIndicator(),
+            return Container(
+              width: double.infinity,
+              padding: EdgeInsets.all(20),
+              child: Center(
+                child: CircularProgressIndicator(),
+              ),
             );
           }
           if (currentState is ErrorInventaireState) {
@@ -101,12 +108,17 @@ class InventaireScreenState extends State<InventaireScreen> {
           // return Center(
           //   child: CircularProgressIndicator(),
           // );
-          return body();
+          return body(size);
         });
   }
 
-  body() {
-    return Container(padding: EdgeInsets.all(20), child: Formulaire());
+  body(Size size) {
+    return Container(
+        color: ColorTheme.grey,
+        width: double.infinity,
+        height: size.height - 25,
+        padding: EdgeInsets.all(20),
+        child: Formulaire());
   }
 
   Formulaire() {

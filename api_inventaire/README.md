@@ -54,7 +54,7 @@ try {
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *http://192.168.86.25:8080*
+All URIs are relative to *http://192.168.1.64:8080*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
@@ -69,6 +69,7 @@ Class | Method | HTTP request | Description
 *InventaireApi* | [**getAll1**](doc\/InventaireApi.md#getall1) | **GET** /inventaires | Get All inventaires
 *InventaireApi* | [**getByIdInventaire**](doc\/InventaireApi.md#getbyidinventaire) | **GET** /inventaire/{id} | Get by id
 *InventaireApi* | [**getByPeriode**](doc\/InventaireApi.md#getbyperiode) | **GET** /inventaires/{id_periode_inventaire} | Get All inventaires by periode
+*InventaireApi* | [**getInventaireByCodificationAndPeriodeInventaire**](doc\/InventaireApi.md#getinventairebycodificationandperiodeinventaire) | **GET** /inventaires/codification/{id_codification}/periodeinventaire/{id_periode_inventaire} | Get inventaire by codification and periode
 *InventaireApi* | [**updateInventaire**](doc\/InventaireApi.md#updateinventaire) | **PUT** /inventaire/{id} | Update inventaire
 *PeriodeInventaireApi* | [**createPeriodeInventaire**](doc\/PeriodeInventaireApi.md#createperiodeinventaire) | **POST** /periodeinentaire | Create periode inventaire
 *PeriodeInventaireApi* | [**getAllPeriodeInventaire**](doc\/PeriodeInventaireApi.md#getallperiodeinventaire) | **GET** /periodeinentaire | Get All periode inventaire

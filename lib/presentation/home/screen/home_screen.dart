@@ -85,10 +85,10 @@ class HomeScreenState extends State<HomeScreen> {
 
   body(Size size) {
     return Container(
-        color: ColorTheme.primary,
+        color: ColorTheme.grey,
         width: double.infinity,
         height: (size.height - kToolbarHeight) - 25,
-        padding: EdgeInsets.all(10),
+        padding: EdgeInsets.all(15),
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -118,47 +118,32 @@ class HomeScreenState extends State<HomeScreen> {
               //   height: 25,
               // ),
               // buttonSubmit(true),
-              Row(
+              Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  InkWell(
-                    onTap: () {
-                      // Navigator.pushNamed(context, '/scanner');
-                      Navigator.pushNamed(context, '/inventaire',
-                          arguments: "INV001");
-                    },
-                    splashColor: ColorTheme.primary,
-                    child: Card(
-                      child: Container(
-                        padding: EdgeInsets.all(5),
-                        height: 100,
-                        width: 100,
-                        decoration: BoxDecoration(
-                            color: ColorTheme.darkgreen,
-                            borderRadius: BorderRadius.circular(8),
-                            border: Border.all(
-                              color: ColorTheme.secondary,
-                              width: 2,
-                            )),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Icon(
-                              Icons.qr_code_scanner_rounded,
-                              size: 50,
-                              color: ColorTheme.primary,
-                            ),
-                            Text(
-                              "Scanner",
-                              style: TextStyle(color: ColorTheme.primary),
-                            )
-                          ],
-                        ),
+                  Card(
+                    child: Container(
+                      padding: EdgeInsets.all(25),
+                      child: Column(
+                        children: [
+                          const Image(
+                              width: 200,
+                              height: 200,
+                              image: AssetImage('assets/images/qr1.jpg')),
+                          SizedBox(
+                            height: 20,
+                          ),
+                          Text('Aligner le QR CODE dans le cadre pour scanner'),
+                        ],
                       ),
                     ),
                   ),
+                  SizedBox(
+                    height: 20,
+                  ),
+
+                  buttonScanner(),
                   // InkWell(
                   //   splashColor: ColorTheme.primary,
                   //   child: Card(
@@ -198,6 +183,64 @@ class HomeScreenState extends State<HomeScreen> {
             ],
           ),
         ));
+  }
+
+  Widget buttonScanner() {
+    return TextButton.icon(
+        onPressed: () {
+          // Navigator.pushNamed(context, '/scanner');
+          Navigator.pushNamed(context, '/inventaire', arguments: "INV001");
+        },
+        style: TextButton.styleFrom(
+          //<-- SEE HERE
+          side: BorderSide(width: 1.5),
+        ),
+        icon: Icon(
+          Icons.qr_code_scanner_rounded,
+          size: 20,
+          color: ColorTheme.darkgreen,
+        ),
+        label: Text(
+          "Scanner le Code QR",
+          style: TextStyle(color: ColorTheme.darkgreen),
+        ));
+
+    // return InkWell(
+    //   onTap: () {
+    //     // Navigator.pushNamed(context, '/scanner');
+    //     Navigator.pushNamed(context, '/inventaire', arguments: "INV001");
+    //   },
+    //   splashColor: ColorTheme.primary,
+    //   child: Card(
+    //     child: Container(
+    //       padding: EdgeInsets.all(5),
+    //       // height: 100,
+    //       width: 150,
+    //       decoration: BoxDecoration(
+    //           color: ColorTheme.darkgreen,
+    //           borderRadius: BorderRadius.circular(8),
+    //           border: Border.all(
+    //             color: ColorTheme.secondary,
+    //             width: 2,
+    //           )),
+    //       child: Row(
+    //         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+    //         crossAxisAlignment: CrossAxisAlignment.center,
+    //         children: [
+    //           Icon(
+    //             Icons.qr_code_scanner_rounded,
+    //             size: 20,
+    //             color: ColorTheme.primary,
+    //           ),
+    //           Text(
+    //             "Scanner Code QR",
+    //             style: TextStyle(color: ColorTheme.primary),
+    //           )
+    //         ],
+    //       ),
+    //     ),
+    //   ),
+    // );
   }
 
   buttonSubmit(bool disable) {

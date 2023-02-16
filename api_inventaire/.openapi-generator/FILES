@@ -33,4 +33,3 @@ lib/model/response_data.dart
 lib/model/response_data_periode_inventaire.dart
 lib/model/users.dart
 pubspec.yaml
-test/response_data_periode_inventaire_test.dart

@@ -218,6 +218,64 @@ class InventaireApi {
     return null;
   }
 
+  /// Get inventaire by codification and periode
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [int] idCodification (required):
+  ///
+  /// * [int] idPeriodeInventaire (required):
+  Future<Response> getInventaireByCodificationAndPeriodeInventaireWithHttpInfo(int idCodification, int idPeriodeInventaire,) async {
+    // ignore: prefer_const_declarations
+    final path = r'/inventaires/codification/{id_codification}/periodeinventaire/{id_periode_inventaire}'
+      .replaceAll('{id_codification}', idCodification.toString())
+      .replaceAll('{id_periode_inventaire}', idPeriodeInventaire.toString());
+
+    // ignore: prefer_final_locals
+    Object? postBody;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    const contentTypes = <String>[];
+
+
+    return apiClient.invokeAPI(
+      path,
+      'GET',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  /// Get inventaire by codification and periode
+  ///
+  /// Parameters:
+  ///
+  /// * [int] idCodification (required):
+  ///
+  /// * [int] idPeriodeInventaire (required):
+  Future<ResponseData?> getInventaireByCodificationAndPeriodeInventaire(int idCodification, int idPeriodeInventaire,) async {
+    final response = await getInventaireByCodificationAndPeriodeInventaireWithHttpInfo(idCodification, idPeriodeInventaire,);
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'ResponseData',) as ResponseData;
+    
+    }
+    return null;
+  }
+
   /// Update inventaire
   ///
   /// Note: This method returns the HTTP [Response].
