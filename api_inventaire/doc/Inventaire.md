@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **dateInventaire** | [**DateTime**](DateTime.md) |  | [optional] 
 **codification** | [**Codification**](Codification.md) |  | [optional] 
 **periodeInventaire** | [**PeriodeInventaire**](PeriodeInventaire.md) |  | [optional] 
+**user** | [**Users**](Users.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

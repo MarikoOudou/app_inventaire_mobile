@@ -20,6 +20,7 @@ class Inventaire {
     this.dateInventaire,
     this.codification,
     this.periodeInventaire,
+    this.user,
   });
 
   ///
@@ -78,6 +79,14 @@ class Inventaire {
   ///
   PeriodeInventaire? periodeInventaire;
 
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  Users? user;
+
   @override
   bool operator ==(Object other) => identical(this, other) || other is Inventaire &&
      other.idInventaire == idInventaire &&
@@ -86,7 +95,8 @@ class Inventaire {
      other.observations == observations &&
      other.dateInventaire == dateInventaire &&
      other.codification == codification &&
-     other.periodeInventaire == periodeInventaire;
+     other.periodeInventaire == periodeInventaire &&
+     other.user == user;
 
   @override
   int get hashCode =>
@@ -97,10 +107,11 @@ class Inventaire {
     (observations == null ? 0 : observations!.hashCode) +
     (dateInventaire == null ? 0 : dateInventaire!.hashCode) +
     (codification == null ? 0 : codification!.hashCode) +
-    (periodeInventaire == null ? 0 : periodeInventaire!.hashCode);
+    (periodeInventaire == null ? 0 : periodeInventaire!.hashCode) +
+    (user == null ? 0 : user!.hashCode);
 
   @override
-  String toString() => 'Inventaire[idInventaire=$idInventaire, etat=$etat, nomAgent=$nomAgent, observations=$observations, dateInventaire=$dateInventaire, codification=$codification, periodeInventaire=$periodeInventaire]';
+  String toString() => 'Inventaire[idInventaire=$idInventaire, etat=$etat, nomAgent=$nomAgent, observations=$observations, dateInventaire=$dateInventaire, codification=$codification, periodeInventaire=$periodeInventaire, user=$user]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -124,6 +135,9 @@ class Inventaire {
     }
     if (periodeInventaire != null) {
       _json[r'periodeInventaire'] = periodeInventaire;
+    }
+    if (user != null) {
+      _json[r'user'] = user;
     }
     return _json;
   }
@@ -154,6 +168,7 @@ class Inventaire {
         dateInventaire: mapDateTime(json, r'date_inventaire', ''),
         codification: Codification.fromJson(json[r'codification']),
         periodeInventaire: PeriodeInventaire.fromJson(json[r'periodeInventaire']),
+        user: Users.fromJson(json[r'user']),
       );
     }
     return null;

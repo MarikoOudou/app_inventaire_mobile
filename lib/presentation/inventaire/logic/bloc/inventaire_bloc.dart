@@ -18,6 +18,8 @@ class InventaireBloc extends Bloc<InventaireEvent, InventaireState> {
         print(event.n_inventaire);
         getCodificationByN_Inventaire(event.n_inventaire);
         // emit(UnInventaireState());
+      } else if (event is CreateInventaireEvent) {
+        createInventaire(event.inventaire);
       }
     });
   }
@@ -56,8 +58,8 @@ class InventaireBloc extends Bloc<InventaireEvent, InventaireState> {
             PeriodeInventaire.fromJson(response.data)?.idPeriodeInventaire ??
                 0);
       } else {
-        emit(ErrorInventaireState(
-          errorMessage: response.message ?? "",
+        emit(InfoInventaireState(
+          message: response.message ?? "",
         ));
       }
     });
@@ -73,6 +75,21 @@ class InventaireBloc extends Bloc<InventaireEvent, InventaireState> {
         emit(LoadDataForForm(
             codification: _codification,
             periodeInventaire: _periodeInventaire));
+      } else {
+        emit(InfoInventaireState(
+          message: response.message ?? "",
+        ));
+      }
+    });
+  }
+
+  createInventaire(Inventaire inventaire) {
+    emit(UnInventaireState());
+    inventaireRepository.createInventaire(inventaire).then((response) {
+      print("Result Serveur : " + response.toString());
+
+      if (response.status ?? true) {
+        emit(CreateInventaireState(message: response.message ?? ""));
       } else {
         emit(ErrorInventaireState(
           errorMessage: response.message ?? "",

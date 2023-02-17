@@ -54,7 +54,7 @@ try {
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *http://192.168.86.25:8080*
+All URIs are relative to *http://192.168.1.64:8080*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------

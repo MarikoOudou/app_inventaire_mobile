@@ -16,7 +16,7 @@ class AppBarThemeCustom {
         elevation: 0,
         systemOverlayStyle: SystemUiOverlayStyle(
           // Status bar color
-          statusBarColor: statusBarColor ?? ColorTheme.darkgreen,
+          statusBarColor: statusBarColor ?? ColorTheme.grey,
 
           // Status bar brightness (optional)
           statusBarIconBrightness: Brightness.dark, // For Android (dark icons)

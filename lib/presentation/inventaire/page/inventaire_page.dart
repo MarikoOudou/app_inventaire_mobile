@@ -26,7 +26,7 @@ class _InventairePageState extends State<InventairePage> {
     _inventaireBloc.add(InventaireEventData(n_inventaire: widget.dataToScan));
     return Scaffold(
       appBar: AppBarThemeCustom.appBar("Inventaire", context,
-          backPage: false, statusBarColor: ColorTheme.darkgreen),
+          backPage: false, statusBarColor: ColorTheme.grey),
       body: InventaireScreen(inventaireBloc: _inventaireBloc),
     );
   }

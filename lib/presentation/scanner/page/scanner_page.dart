@@ -13,7 +13,11 @@ class _ScannerPageState extends State<ScannerPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBarThemeCustom.appBar("Scanner", context, backPage: false),
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(0.0),
+        child: AppBarThemeCustom.appBar("Scanner", context,
+            backPage: false, backgroundColor: Colors.greenAccent),
+      ),
       body: ScannerScreen(),
     );
   }

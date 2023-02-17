@@ -1,7 +1,10 @@
+import 'package:api_inventaire/api.dart';
 import 'package:art_sweetalert/art_sweetalert.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:inventaire_immobilier/presentation/inventaire/logic/bloc/inventaire_bloc.dart';
+import 'package:inventaire_immobilier/shared/constants/storage_keys.dart';
+import 'package:inventaire_immobilier/shared/storage.dart';
 import 'package:inventaire_immobilier/shared/themes/ColorsTheme.dart';
 import 'package:inventaire_immobilier/shared/widgets/input_widget.dart';
 import 'package:select_form_field/select_form_field.dart';
@@ -22,6 +25,9 @@ class InventaireScreen extends StatefulWidget {
 
 class InventaireScreenState extends State<InventaireScreen> {
   bool isActiveForm = false;
+  Codification codification = Codification(nInventaire: "");
+  PeriodeInventaire periodeInventaire = PeriodeInventaire();
+  Users users = Users();
 
   InventaireScreenState();
 
@@ -111,37 +117,71 @@ class InventaireScreenState extends State<InventaireScreen> {
               ],
             ));
           }
+
+          if (currentState is InfoInventaireState) {
+            WidgetsBinding.instance.addPostFrameCallback((_) {
+              ArtSweetAlert.show(
+                  context: context,
+                  artDialogArgs: ArtDialogArgs(
+                      type: ArtSweetAlertType.info,
+                      // onConfirm: () {
+                      //   print('object');
+                      // },
+                      confirmButtonText: 'Retour',
+                      title: "Information",
+                      text: currentState.message.toString()));
+              // Navigator.pushNamedAndRemoveUntil(
+              //     context, "/home", (route) => false);
+            });
+            return pageInit(size, context);
+          }
+
           if (currentState is InInventaireState) {
-            return Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  // Text(currentState.hello),
-                ],
-              ),
-            );
+            return pageInit(size, context);
           }
           if (currentState is LoadDataForForm) {
             _code_inventaire_controller = TextEditingController(
                 text: currentState.codification.nInventaire.toString());
+            codification = currentState.codification;
+            periodeInventaire = currentState.periodeInventaire;
             return body(size);
           }
-          // return Center(
-          //   child: CircularProgressIndicator(),
-          // );
-          return SizedBox(
-            width: double.infinity,
-            height: size.height - 25,
-            child: Center(
-              child: TextButton.icon(
-                  onPressed: (() {
-                    Navigator.pop(context);
-                  }),
-                  icon: const Icon(Icons.arrow_back),
-                  label: const Text('RETOUR A L\'ACCUEIL')),
-            ),
-          );
+
+          if (currentState is CreateInventaireState) {
+            WidgetsBinding.instance.addPostFrameCallback((_) {
+              ArtSweetAlert.show(
+                  context: context,
+                  artDialogArgs: ArtDialogArgs(
+                      type: ArtSweetAlertType.success,
+                      // onConfirm: () {
+                      //   print('object');
+                      // },
+                      confirmButtonText: 'Retour',
+                      title: "SUCCES",
+                      text: currentState.message.toString()));
+              // Navigator.pushNamedAndRemoveUntil(
+              //     context, "/home", (route) => false);
+            });
+            return pageInit(size, context);
+          }
+
+          return pageInit(size, context);
         });
+  }
+
+  SizedBox pageInit(Size size, BuildContext context) {
+    return SizedBox(
+      width: double.infinity,
+      height: size.height - 25,
+      child: Center(
+        child: TextButton.icon(
+            onPressed: (() {
+              Navigator.pop(context);
+            }),
+            icon: const Icon(Icons.arrow_back),
+            label: const Text('RETOUR A L\'ACCUEIL')),
+      ),
+    );
   }
 
   body(Size size) {
@@ -249,20 +289,19 @@ class InventaireScreenState extends State<InventaireScreen> {
     return ElevatedButton(
       onPressed: disable
           ? null
-          : (() {
-              // Navigator.pushNamedAndRemoveUntil(
-              //     context, "/home", (route) => false);
-
-              ArtSweetAlert.show(
-                  context: context,
-                  artDialogArgs: ArtDialogArgs(
-                      type: ArtSweetAlertType.success,
-                      // onConfirm: () {
-                      //   print('object');
-                      // },
-                      confirmButtonText: 'Retour',
-                      title: "A success message!",
-                      text: "Show a success message with an icon"));
+          : (() async {
+              users.userId =
+                  int.parse(await Storage.get(StorageKeys.id) ?? "0");
+              Inventaire inventaire = Inventaire(
+                  observations: _observaton_controller.text,
+                  etat: _etat_controller.text,
+                  nomAgent: await Storage.get(StorageKeys.fullname),
+                  dateInventaire: DateTime.now(),
+                  codification: codification,
+                  periodeInventaire: periodeInventaire,
+                  user: users);
+              widget._inventaireBloc
+                  .add(CreateInventaireEvent(inventaire: inventaire));
             }),
       child: Padding(
         padding: EdgeInsets.all(13),

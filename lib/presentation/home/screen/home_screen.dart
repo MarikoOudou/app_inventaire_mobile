@@ -188,8 +188,8 @@ class HomeScreenState extends State<HomeScreen> {
   Widget buttonScanner() {
     return TextButton.icon(
         onPressed: () {
-          // Navigator.pushNamed(context, '/scanner');
-          Navigator.pushNamed(context, '/inventaire', arguments: "INV001");
+          Navigator.pushNamed(context, '/scanner');
+          // Navigator.pushNamed(context, '/inventaire', arguments: "INV0012");
         },
         style: TextButton.styleFrom(
           //<-- SEE HERE
