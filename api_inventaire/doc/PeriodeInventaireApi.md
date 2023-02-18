@@ -9,12 +9,56 @@ All URIs are relative to *http://192.168.1.64:8080*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**activeOrDiseable**](PeriodeInventaireApi.md#activeordiseable) | **PATCH** /periodeinentaire/activeordiseable/{id} | Update periode by isActive
 [**createPeriodeInventaire**](PeriodeInventaireApi.md#createperiodeinventaire) | **POST** /periodeinentaire | Create periode inventaire
 [**getAllPeriodeInventaire**](PeriodeInventaireApi.md#getallperiodeinventaire) | **GET** /periodeinentaire | Get All periode inventaire
 [**getByIdPeriodeInventaire**](PeriodeInventaireApi.md#getbyidperiodeinventaire) | **GET** /periodeinentaire/{id} | Get by id
 [**getPeriodeInventaireIsActive**](PeriodeInventaireApi.md#getperiodeinventaireisactive) | **GET** /periodeinentaire/isactive | Get periode inventaire is active
 [**updatePeriodeInventaire**](PeriodeInventaireApi.md#updateperiodeinventaire) | **PUT** /periodeinentaire/{id} | Update periode inventaire
 
+
+# **activeOrDiseable**
+> ResponseData activeOrDiseable(id, periodeInventaire)
+
+Update periode by isActive
+
+### Example
+```dart
+import 'package:api_inventaire/api.dart';
+
+final api_instance = PeriodeInventaireApi();
+final id = 789; // int | 
+final periodeInventaire = PeriodeInventaire(); // PeriodeInventaire | 
+
+try {
+    final result = api_instance.activeOrDiseable(id, periodeInventaire);
+    print(result);
+} catch (e) {
+    print('Exception when calling PeriodeInventaireApi->activeOrDiseable: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**|  | 
+ **periodeInventaire** | [**PeriodeInventaire**](PeriodeInventaire.md)|  | 
+
+### Return type
+
+[**ResponseData**](ResponseData.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **createPeriodeInventaire**
 > Object createPeriodeInventaire(periodeInventaire)

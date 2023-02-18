@@ -17,16 +17,23 @@ void main() {
   // final instance = PeriodeInventaireApi();
 
   group('tests for PeriodeInventaireApi', () {
-    // Create periode inentaire
+    // Update periode by isActive
+    //
+    //Future<ResponseData> activeOrDiseable(int id, PeriodeInventaire periodeInventaire) async
+    test('test activeOrDiseable', () async {
+      // TODO
+    });
+
+    // Create periode inventaire
     //
     //Future<Object> createPeriodeInventaire(PeriodeInventaire periodeInventaire) async
     test('test createPeriodeInventaire', () async {
       // TODO
     });
 
-    // Get All periode inentaire
+    // Get All periode inventaire
     //
-    //Future<Object> getAllPeriodeInventaire() async
+    //Future<ResponseData> getAllPeriodeInventaire() async
     test('test getAllPeriodeInventaire', () async {
       // TODO
     });
@@ -38,7 +45,14 @@ void main() {
       // TODO
     });
 
-    // Update periode inentaire
+    // Get periode inventaire is active
+    //
+    //Future<ResponseData> getPeriodeInventaireIsActive() async
+    test('test getPeriodeInventaireIsActive', () async {
+      // TODO
+    });
+
+    // Update periode inventaire
     //
     //Future<Object> updatePeriodeInventaire(int id, PeriodeInventaire periodeInventaire) async
     test('test updatePeriodeInventaire', () async {

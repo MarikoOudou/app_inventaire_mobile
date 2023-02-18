@@ -71,6 +71,7 @@ Class | Method | HTTP request | Description
 *InventaireApi* | [**getByPeriode**](doc\/InventaireApi.md#getbyperiode) | **GET** /inventaires/{id_periode_inventaire} | Get All inventaires by periode
 *InventaireApi* | [**getInventaireByCodificationAndPeriodeInventaire**](doc\/InventaireApi.md#getinventairebycodificationandperiodeinventaire) | **GET** /inventaires/codification/{id_codification}/periodeinventaire/{id_periode_inventaire} | Get inventaire by codification and periode
 *InventaireApi* | [**updateInventaire**](doc\/InventaireApi.md#updateinventaire) | **PUT** /inventaire/{id} | Update inventaire
+*PeriodeInventaireApi* | [**activeOrDiseable**](doc\/PeriodeInventaireApi.md#activeordiseable) | **PATCH** /periodeinentaire/activeordiseable/{id} | Update periode by isActive
 *PeriodeInventaireApi* | [**createPeriodeInventaire**](doc\/PeriodeInventaireApi.md#createperiodeinventaire) | **POST** /periodeinentaire | Create periode inventaire
 *PeriodeInventaireApi* | [**getAllPeriodeInventaire**](doc\/PeriodeInventaireApi.md#getallperiodeinventaire) | **GET** /periodeinentaire | Get All periode inventaire
 *PeriodeInventaireApi* | [**getByIdPeriodeInventaire**](doc\/PeriodeInventaireApi.md#getbyidperiodeinventaire) | **GET** /periodeinentaire/{id} | Get by id

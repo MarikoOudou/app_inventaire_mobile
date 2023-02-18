@@ -115,6 +115,13 @@ class LoginScreenState extends State<LoginScreen> {
             children: [
               widgetLogo(),
               const SizedBox(
+                height: 10,
+              ),
+              Text(
+                'CONNEXION',
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              ),
+              const SizedBox(
                 height: 40,
               ),
               inputs(),
@@ -129,13 +136,19 @@ class LoginScreenState extends State<LoginScreen> {
     return Container(
       height: 80,
       width: 80,
+      clipBehavior: Clip.hardEdge,
+      padding: EdgeInsets.all(10),
       decoration: BoxDecoration(
-          color: ColorTheme.darkgreen,
+          color: ColorTheme.primary,
           borderRadius: BorderRadius.circular(50),
           border: Border.all(
-            color: ColorTheme.secondary,
+            color: ColorTheme.secondary.shade100,
             width: 2,
           )),
+      child: const Image(
+          width: 200,
+          height: 200,
+          image: AssetImage('assets/images/logo1.png')),
     );
   }
 
@@ -147,7 +160,7 @@ class LoginScreenState extends State<LoginScreen> {
           labelText: "Email",
           onChanged: (p0) {
             // setState(() {
-            //   validator();
+            //   // validator();
             // });
 
             // print(p0);

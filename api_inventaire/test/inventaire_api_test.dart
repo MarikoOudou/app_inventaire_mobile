@@ -19,7 +19,7 @@ void main() {
   group('tests for InventaireApi', () {
     // Create inventaire
     //
-    //Future<Object> createInventaire(Inventaire inventaire) async
+    //Future<ResponseData> createInventaire(Inventaire inventaire) async
     test('test createInventaire', () async {
       // TODO
     });
@@ -42,6 +42,13 @@ void main() {
     //
     //Future<Object> getByPeriode(int idPeriodeInventaire) async
     test('test getByPeriode', () async {
+      // TODO
+    });
+
+    // Get inventaire by codification and periode
+    //
+    //Future<ResponseData> getInventaireByCodificationAndPeriodeInventaire(int idCodification, int idPeriodeInventaire) async
+    test('test getInventaireByCodificationAndPeriodeInventaire', () async {
       // TODO
     });
 

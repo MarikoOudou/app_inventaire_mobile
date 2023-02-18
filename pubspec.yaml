@@ -51,6 +51,8 @@ dependencies:
   select_form_field: ^2.2.0
   art_sweetalert: ^0.0.5
   intl: ^0.17.0
+  flutter_launcher_icons: ^0.10.0
+  flutter_native_splash: ^2.2.11
   # openapi_generator_annotations: ^1.1.4
   api_inventaire:
     path: ./api_inventaire
@@ -58,10 +60,6 @@ dependencies:
 dependency_overrides:
   # analyzer: 1.0.0
 
-  # openapi_generator_annotations:
-  #   path: ./api_inventaire
-  # openapi_generator:
-  #   path: ./api_inventaire
 
 dev_dependencies:
   flutter_test:

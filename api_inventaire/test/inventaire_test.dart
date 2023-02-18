@@ -51,6 +51,11 @@ void main() {
       // TODO
     });
 
+    // Users user
+    test('to test the property `user`', () async {
+      // TODO
+    });
+
 
   });
 
