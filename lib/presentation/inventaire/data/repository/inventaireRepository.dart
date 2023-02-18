@@ -27,6 +27,7 @@ class InventaireRepository {
 
   Future<ResponseData> getCodificationByN_Inventaire(
       {required String n_inventaire}) async {
+    print(_client.basePath);
     print("N° inventaire to send :" + n_inventaire);
     ResponseData result = await codificationApi
         .getByNInventaireCodification(n_inventaire) as ResponseData;
@@ -53,7 +54,7 @@ class InventaireRepository {
     return result;
   }
 
-    Future<ResponseData> createInventaire(Inventaire inventaire) async {
+  Future<ResponseData> createInventaire(Inventaire inventaire) async {
     print("Inventaire :" + inventaire.toString());
     // print("id_periode_inventaire :" + id_periode_inventaire.toString());
 

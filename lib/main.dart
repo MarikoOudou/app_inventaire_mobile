@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:inventaire_immobilier/presentation/auth/login/data/services/usersService.dart';
 import 'package:inventaire_immobilier/routers/app_router.dart';
 import 'package:inventaire_immobilier/shared/constants/environnement.dart';
@@ -8,7 +9,10 @@ import 'package:openapi_generator_annotations/openapi_generator_annotations.dart
 import 'package:openapi_generator/openapi_generator.dart';
 
 void main() {
-  runApp(const MyApp());
+  WidgetsFlutterBinding.ensureInitialized();
+  // runApp(const MyApp());
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
+      .then((value) => runApp(MyApp()));
 }
 
 final AppRouter _appRouter = AppRouter();

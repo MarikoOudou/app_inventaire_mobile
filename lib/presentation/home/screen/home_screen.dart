@@ -76,9 +76,6 @@ class HomeScreenState extends State<HomeScreen> {
               ),
             );
           }
-          // return Center(
-          //     child: CircularProgressIndicator(),
-          // );
           return body(size);
         });
   }
@@ -87,42 +84,21 @@ class HomeScreenState extends State<HomeScreen> {
     return Container(
         color: ColorTheme.grey,
         width: double.infinity,
-        height: (size.height - kToolbarHeight) - 25,
+        height: (size.height) - 25,
         padding: EdgeInsets.all(15),
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              // Column(
-              //   children: [
-              //     Card(
-              //       child: Container(
-              //         decoration: BoxDecoration(
-              //           color: ColorTheme.white,
-              //           borderRadius: BorderRadius.circular(8),
-              //           // border: Border.all(
-              //           //   color: ColorTheme.secondary,
-              //           //   width: 2,
-              //           // )
-              //         ),
-              //         child: ListTile(
-              //           leading: widgetLogo(),
-              //           title: Text('Fullname'),
-              //           subtitle: Text('Fonction'),
-              //         ),
-              //       ),
-              //     ),
-              //   ],
-              // ),
-              // SizedBox(
-              //   height: 25,
-              // ),
-              // buttonSubmit(true),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Card(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20),
+                      //set border radius more than 50% of height and width to make circle
+                    ),
                     child: Container(
                       padding: EdgeInsets.all(25),
                       child: Column(
@@ -142,42 +118,7 @@ class HomeScreenState extends State<HomeScreen> {
                   SizedBox(
                     height: 20,
                   ),
-
                   buttonScanner(),
-                  // InkWell(
-                  //   splashColor: ColorTheme.primary,
-                  //   child: Card(
-                  //     child: Container(
-                  //       padding: EdgeInsets.all(5),
-                  //       height: 100,
-                  //       width: 100,
-                  //       decoration: BoxDecoration(
-                  //           color: ColorTheme.darkgreen,
-                  //           borderRadius: BorderRadius.circular(8),
-                  //           border: Border.all(
-                  //             color: ColorTheme.secondary,
-                  //             width: 2,
-                  //           )),
-                  //       child: Column(
-                  //         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  //         crossAxisAlignment: CrossAxisAlignment.center,
-                  //         mainAxisSize: MainAxisSize.max,
-                  //         children: [
-                  //           Icon(
-                  //             Icons.document_scanner,
-                  //             size: 50,
-                  //             color: ColorTheme.primary,
-                  //           ),
-                  //           Text(
-                  //             "Voir Mes Scanner",
-                  //             style: TextStyle(
-                  //                 color: ColorTheme.primary, fontSize: 10),
-                  //           )
-                  //         ],
-                  //       ),
-                  //     ),
-                  //   ),
-                  // ),
                 ],
               ),
             ],
@@ -193,54 +134,17 @@ class HomeScreenState extends State<HomeScreen> {
         },
         style: TextButton.styleFrom(
           //<-- SEE HERE
-          side: BorderSide(width: 1.5),
+          side: BorderSide(width: 1.5, color: ColorTheme.secondary),
         ),
         icon: Icon(
           Icons.qr_code_scanner_rounded,
-          size: 20,
-          color: ColorTheme.darkgreen,
+          size: 25,
+          color: ColorTheme.secondary,
         ),
         label: Text(
           "Scanner le Code QR",
-          style: TextStyle(color: ColorTheme.darkgreen),
+          style: TextStyle(color: ColorTheme.secondary),
         ));
-
-    // return InkWell(
-    //   onTap: () {
-    //     // Navigator.pushNamed(context, '/scanner');
-    //     Navigator.pushNamed(context, '/inventaire', arguments: "INV001");
-    //   },
-    //   splashColor: ColorTheme.primary,
-    //   child: Card(
-    //     child: Container(
-    //       padding: EdgeInsets.all(5),
-    //       // height: 100,
-    //       width: 150,
-    //       decoration: BoxDecoration(
-    //           color: ColorTheme.darkgreen,
-    //           borderRadius: BorderRadius.circular(8),
-    //           border: Border.all(
-    //             color: ColorTheme.secondary,
-    //             width: 2,
-    //           )),
-    //       child: Row(
-    //         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-    //         crossAxisAlignment: CrossAxisAlignment.center,
-    //         children: [
-    //           Icon(
-    //             Icons.qr_code_scanner_rounded,
-    //             size: 20,
-    //             color: ColorTheme.primary,
-    //           ),
-    //           Text(
-    //             "Scanner Code QR",
-    //             style: TextStyle(color: ColorTheme.primary),
-    //           )
-    //         ],
-    //       ),
-    //     ),
-    //   ),
-    // );
   }
 
   buttonSubmit(bool disable) {

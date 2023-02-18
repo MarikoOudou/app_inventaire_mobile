@@ -105,9 +105,9 @@ class LoginScreenState extends State<LoginScreen> {
   Widget body(Size size) {
     return Container(
         // child: CircularProgressIndicator(),
-        color: ColorTheme.primary,
+        color: ColorTheme.grey,
         width: double.infinity,
-        height: (size.height - kToolbarHeight) - 25,
+        height: size.height - 25,
         padding: EdgeInsets.all(20),
         child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,

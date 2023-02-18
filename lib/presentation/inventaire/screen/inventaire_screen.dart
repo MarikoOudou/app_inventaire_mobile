@@ -101,21 +101,7 @@ class InventaireScreenState extends State<InventaireScreen> {
               // Navigator.pushNamedAndRemoveUntil(
               //     context, "/home", (route) => false);
             });
-            return Center(
-                child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                // Text(currentState.errorMessage ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 32.0),
-                  // child: RaisedButton(
-                  //   color: Colors.blue,
-                  //   child: Text('reload'),
-                  //   onPressed: _load,
-                  // ),
-                ),
-              ],
-            ));
+            return pageInit(size, context);
           }
 
           if (currentState is InfoInventaireState) {
@@ -169,10 +155,11 @@ class InventaireScreenState extends State<InventaireScreen> {
         });
   }
 
-  SizedBox pageInit(Size size, BuildContext context) {
-    return SizedBox(
+  Container pageInit(Size size, BuildContext context) {
+    return Container(
       width: double.infinity,
       height: size.height - 25,
+      color: ColorTheme.grey,
       child: Center(
         child: TextButton.icon(
             onPressed: (() {

@@ -14,13 +14,14 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-
   final _loginBloc = LoginBloc(usersRepository: new UsersRepository());
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBarThemeCustom.appBar("Login", context, backPage: false),
+      appBar: PreferredSize(
+          preferredSize: Size.zero,
+          child: AppBarThemeCustom.appBar("Login", context, backPage: false)),
       body: LoginScreen(loginBloc: _loginBloc),
     );
   }

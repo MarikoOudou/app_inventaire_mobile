@@ -18,8 +18,11 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBarThemeCustom.appBar("Home", context,
-          backPage: false, statusBarColor: ColorTheme.grey),
+      appBar: PreferredSize(
+        preferredSize: Size.zero,
+        child: AppBarThemeCustom.appBar("Home", context,
+            backPage: false, statusBarColor: ColorTheme.grey),
+      ),
       body: HomeScreen(homeBloc: _homeBloc),
     );
   }
