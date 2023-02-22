@@ -14,8 +14,8 @@ Future<void> main() async {
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
   WidgetsFlutterBinding.ensureInitialized();
 
-  print('ready in 3...');
-  await Future.delayed(const Duration(seconds: 1));
+  // print('ready in 3...');
+  // await Future.delayed(const Duration(seconds: 1));
   print('ready in 2...');
   await Future.delayed(const Duration(seconds: 1));
   print('ready in 1...');
