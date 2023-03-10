@@ -1,3 +1,3 @@
-// const URL_API = "http://192.168.1.64:8080";
+// const URL_API = "http://127.0.0.1:8000/api";
 // ignore: constant_identifier_names
-const URL_API = "http://192.168.86.205:8080";
+const URL_API = "https://gest-imm.ci/laravel/public/api";

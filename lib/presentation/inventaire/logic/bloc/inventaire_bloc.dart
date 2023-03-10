@@ -34,7 +34,9 @@ class InventaireBloc extends Bloc<InventaireEvent, InventaireState> {
       if (response.status ?? true) {
         _codification = Codification.fromJson(response.data)!;
         getPeriodeInventaire(
-            Codification.fromJson(response.data)?.idCodification ?? 0);
+            Codification.fromJson(response.data)?.idCodification ??
+                Codification.fromJson(response.data)?.id ??
+                0);
 
         // emit(InInventaireState(
         //     codification: Codification?.fromJson(response.data) ??
@@ -48,6 +50,7 @@ class InventaireBloc extends Bloc<InventaireEvent, InventaireState> {
   }
 
   getPeriodeInventaire(int id_codification) {
+    print("id codifi : " + id_codification.toString());
     inventaireRepository.getPeriodeInventaireIsActive().then((response) {
       print("Result Serveur : " + response.toString());
 

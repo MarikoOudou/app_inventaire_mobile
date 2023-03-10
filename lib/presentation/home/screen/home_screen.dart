@@ -130,7 +130,7 @@ class HomeScreenState extends State<HomeScreen> {
     return TextButton.icon(
         onPressed: () {
           Navigator.pushNamed(context, '/scanner');
-          // Navigator.pushNamed(context, '/inventaire', arguments: "INV0012");
+          // Navigator.pushNamed(context, '/inventaire', arguments: "INV0018");
         },
         style: TextButton.styleFrom(
           //<-- SEE HERE

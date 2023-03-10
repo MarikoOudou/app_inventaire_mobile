@@ -1,7 +1,7 @@
 import 'dart:convert';
-
 import 'package:api_inventaire/api.dart';
 import 'package:inventaire_immobilier/shared/constants/environnement.dart';
+import 'package:http/http.dart' as http;
 
 class InventaireRepository {
   ApiClient _client = new ApiClient();
@@ -31,7 +31,7 @@ class InventaireRepository {
     print("N° inventaire to send :" + n_inventaire);
     ResponseData result = await codificationApi
         .getByNInventaireCodification(n_inventaire) as ResponseData;
-    print(jsonEncode(await result));
+    // print(jsonEncode(await result));
     return result;
   }
 
@@ -56,11 +56,39 @@ class InventaireRepository {
 
   Future<ResponseData> createInventaire(Inventaire inventaire) async {
     print("Inventaire :" + inventaire.toString());
-    // print("id_periode_inventaire :" + id_periode_inventaire.toString());
 
-    ResponseData result =
-        await inventaireApi.createInventaire(inventaire) as ResponseData;
-    print(jsonEncode(await result));
-    return result;
+    Map<String, String> body = {
+      'etat': inventaire.etat.toString(),
+      'nom_agent': inventaire.nomAgent.toString(),
+      'observations': inventaire.observations.toString(),
+      'libelle_immo': inventaire.libelle_immo.toString(),
+      'libelle_localisation': inventaire.libelle_localisation.toString(),
+      'code_localisation': inventaire.code_localisation.toString(),
+      'libelle_complementaire': inventaire.libelle_complementaire.toString(),
+      'date_inventaire': inventaire.dateInventaire.toString(),
+      'id_codification': inventaire.codification!.id.toString(),
+      'id_periode_inventaire':
+          inventaire.periodeInventaire!.idPeriodeInventaire.toString(),
+      'userId': inventaire.user!.id.toString()
+    };
+
+    http.Response result = await post(body, URL_API + "/inventaire");
+
+    print(jsonDecode(result.body));
+    return ResponseData.fromJson(jsonDecode(result.body)) ?? new ResponseData();
+  }
+
+  Future<http.Response> post(Map<String, String> body, String path) {
+    print(path);
+    return http.post(
+      Uri.parse(path),
+      headers: <String, String>{
+        'Content-Type': 'application/json; charset=UTF-8',
+      },
+      // body: jsonEncode(<String, String>{
+      //   'title': title,
+      // }),
+      body: jsonEncode(body),
+    );
   }
 }

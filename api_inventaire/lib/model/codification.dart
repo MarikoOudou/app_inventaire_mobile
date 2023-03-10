@@ -13,9 +13,12 @@ part of openapi.api;
 class Codification {
   /// Returns a new [Codification] instance.
   Codification({
+    this.id,
     this.idCodification,
     required this.nInventaire,
     this.codeGuichet,
+    this.libelleImmo,
+    this.libelle_complementaire,
     this.departement,
     this.nSerie,
     this.direction,
@@ -37,6 +40,7 @@ class Codification {
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
   int? idCodification;
+  int? id;
 
   String nInventaire;
 
@@ -47,6 +51,8 @@ class Codification {
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
   String? codeGuichet;
+  String? libelle_complementaire;
+  String? libelleImmo;
 
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
@@ -147,8 +153,11 @@ class Codification {
   @override
   bool operator ==(Object other) => identical(this, other) || other is Codification &&
      other.idCodification == idCodification &&
+     other.id == id &&
      other.nInventaire == nInventaire &&
      other.codeGuichet == codeGuichet &&
+     other.libelle_complementaire == libelle_complementaire &&
+     other.libelleImmo == libelleImmo &&
      other.departement == departement &&
      other.nSerie == nSerie &&
      other.direction == direction &&
@@ -166,8 +175,11 @@ class Codification {
   int get hashCode =>
     // ignore: unnecessary_parenthesis
     (idCodification == null ? 0 : idCodification!.hashCode) +
+    (id == null ? 0 : id!.hashCode) +
     (nInventaire.hashCode) +
     (codeGuichet == null ? 0 : codeGuichet!.hashCode) +
+    (libelle_complementaire == null ? 0 : libelle_complementaire!.hashCode) +
+    (libelleImmo == null ? 0 : libelleImmo!.hashCode) +
     (departement == null ? 0 : departement!.hashCode) +
     (nSerie == null ? 0 : nSerie!.hashCode) +
     (direction == null ? 0 : direction!.hashCode) +
@@ -182,16 +194,25 @@ class Codification {
     (libelleLocalisation == null ? 0 : libelleLocalisation!.hashCode);
 
   @override
-  String toString() => 'Codification[idCodification=$idCodification, nInventaire=$nInventaire, codeGuichet=$codeGuichet, departement=$departement, nSerie=$nSerie, direction=$direction, famille=$famille, libelleFamille=$libelleFamille, sousLibelleFamille=$sousLibelleFamille, niveau=$niveau, service=$service, sousFamille=$sousFamille, codeLocalisation=$codeLocalisation, libelleAgence=$libelleAgence, libelleLocalisation=$libelleLocalisation]';
+  String toString() => 'Codification[id=$id,idCodification=$idCodification, nInventaire=$nInventaire, codeGuichet=$codeGuichet, departement=$departement, nSerie=$nSerie, direction=$direction, famille=$famille, libelleFamille=$libelleFamille, sousLibelleFamille=$sousLibelleFamille, niveau=$niveau, service=$service, sousFamille=$sousFamille, codeLocalisation=$codeLocalisation, libelleAgence=$libelleAgence, libelleLocalisation=$libelleLocalisation]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
     if (idCodification != null) {
       _json[r'id_codification'] = idCodification;
     }
+        if (id != null) {
+      _json[r'id'] = id;
+    }
       _json[r'n_inventaire'] = nInventaire;
     if (codeGuichet != null) {
       _json[r'code_guichet'] = codeGuichet;
+    }
+        if (libelle_complementaire != null) {
+      _json[r'libelle_complementaire'] = libelle_complementaire;
+    }
+    if (libelleImmo != null) {
+      _json[r'libelle_immo'] = libelleImmo;
     }
     if (departement != null) {
       _json[r'departement'] = departement;
@@ -221,7 +242,7 @@ class Codification {
       _json[r'sous_famille'] = sousFamille;
     }
     if (codeLocalisation != null) {
-      _json[r'codeLocalisation'] = codeLocalisation;
+      _json[r'code_localisation'] = codeLocalisation;
     }
     if (libelleAgence != null) {
       _json[r'libelle_agence'] = libelleAgence;
@@ -251,9 +272,12 @@ class Codification {
       }());
 
       return Codification(
+        id: mapValueOfType<int>(json, r'id'),
         idCodification: mapValueOfType<int>(json, r'id_codification'),
         nInventaire: mapValueOfType<String>(json, r'n_inventaire')!,
         codeGuichet: mapValueOfType<String>(json, r'code_guichet'),
+        libelle_complementaire: mapValueOfType<String>(json, r'libelle_complementaire'),
+        libelleImmo: mapValueOfType<String>(json, r'libelle_immo'),
         departement: mapValueOfType<String>(json, r'departement'),
         nSerie: mapValueOfType<String>(json, r'n_serie'),
         direction: mapValueOfType<String>(json, r'direction'),
@@ -263,7 +287,7 @@ class Codification {
         niveau: mapValueOfType<String>(json, r'niveau'),
         service: mapValueOfType<String>(json, r'service'),
         sousFamille: mapValueOfType<String>(json, r'sous_famille'),
-        codeLocalisation: mapValueOfType<String>(json, r'codeLocalisation'),
+        codeLocalisation: mapValueOfType<String>(json, r'code_localisation'),
         libelleAgence: mapValueOfType<String>(json, r'libelle_agence'),
         libelleLocalisation: mapValueOfType<String>(json, r'libelle_localisation'),
       );

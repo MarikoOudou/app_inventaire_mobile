@@ -17,6 +17,10 @@ class Inventaire {
     this.etat,
     this.nomAgent,
     this.observations,
+    this.libelle_complementaire,
+    this.libelle_immo,
+    this.code_localisation,
+    this.libelle_localisation,
     this.dateInventaire,
     this.codification,
     this.periodeInventaire,
@@ -54,6 +58,10 @@ class Inventaire {
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
   String? observations;
+  String? libelle_complementaire;
+  String? libelle_immo;
+  String? libelle_localisation;
+  String? code_localisation;
 
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
@@ -93,6 +101,10 @@ class Inventaire {
      other.etat == etat &&
      other.nomAgent == nomAgent &&
      other.observations == observations &&
+     other.libelle_complementaire == libelle_complementaire &&
+     other.libelle_immo == libelle_immo &&
+     other.code_localisation == code_localisation &&
+     other.libelle_localisation == libelle_localisation &&
      other.dateInventaire == dateInventaire &&
      other.codification == codification &&
      other.periodeInventaire == periodeInventaire &&
@@ -105,6 +117,10 @@ class Inventaire {
     (etat == null ? 0 : etat!.hashCode) +
     (nomAgent == null ? 0 : nomAgent!.hashCode) +
     (observations == null ? 0 : observations!.hashCode) +
+    (libelle_complementaire == null ? 0 : libelle_complementaire!.hashCode) +
+    (libelle_immo == null ? 0 : libelle_immo!.hashCode) +
+    (code_localisation == null ? 0 : code_localisation!.hashCode) +
+    (libelle_localisation == null ? 0 : libelle_localisation!.hashCode) +
     (dateInventaire == null ? 0 : dateInventaire!.hashCode) +
     (codification == null ? 0 : codification!.hashCode) +
     (periodeInventaire == null ? 0 : periodeInventaire!.hashCode) +
@@ -126,6 +142,18 @@ class Inventaire {
     }
     if (observations != null) {
       _json[r'observations'] = observations;
+    }
+        if (libelle_complementaire != null) {
+      _json[r'libelle_complementaire'] = libelle_complementaire;
+    }
+        if (libelle_immo != null) {
+      _json[r'libelle_immo'] = libelle_immo;
+    }
+        if (code_localisation != null) {
+      _json[r'code_localisation'] = code_localisation;
+    }
+    if (libelle_localisation != null) {
+      _json[r'libelle_localisation'] = libelle_localisation;
     }
     if (dateInventaire != null) {
       _json[r'date_inventaire'] = dateInventaire!.toUtc().toIso8601String();
@@ -165,6 +193,10 @@ class Inventaire {
         etat: mapValueOfType<String>(json, r'etat'),
         nomAgent: mapValueOfType<String>(json, r'nom_agent'),
         observations: mapValueOfType<String>(json, r'observations'),
+        libelle_complementaire: mapValueOfType<String>(json, r'libelle_complementaire'),
+        libelle_immo: mapValueOfType<String>(json, r'libelle_immo'),
+        code_localisation: mapValueOfType<String>(json, r'code_localisation'),
+        libelle_localisation: mapValueOfType<String>(json, r'libelle_localisation'),
         dateInventaire: mapDateTime(json, r'date_inventaire', ''),
         codification: Codification.fromJson(json[r'codification']),
         periodeInventaire: PeriodeInventaire.fromJson(json[r'periodeInventaire']),

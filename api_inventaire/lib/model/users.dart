@@ -14,6 +14,7 @@ class Users {
   /// Returns a new [Users] instance.
   Users({
     this.userId,
+    this.id,
     this.email,
     this.typeUser,
     this.adress,
@@ -26,6 +27,7 @@ class Users {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
+  int? id;
   int? userId;
 
   ///
@@ -63,6 +65,7 @@ class Users {
   @override
   bool operator ==(Object other) => identical(this, other) || other is Users &&
      other.userId == userId &&
+     other.id == id &&
      other.email == email &&
      other.typeUser == typeUser &&
      other.adress == adress &&
@@ -71,6 +74,7 @@ class Users {
   @override
   int get hashCode =>
     // ignore: unnecessary_parenthesis
+    (id == null ? 0 : id!.hashCode) +
     (userId == null ? 0 : userId!.hashCode) +
     (email == null ? 0 : email!.hashCode) +
     (typeUser == null ? 0 : typeUser!.hashCode) +
@@ -78,12 +82,15 @@ class Users {
     (fullname == null ? 0 : fullname!.hashCode);
 
   @override
-  String toString() => 'Users[userId=$userId, email=$email, typeUser=$typeUser, adress=$adress, fullname=$fullname]';
+  String toString() => 'Users[id=$id,userId=$userId, email=$email, typeUser=$typeUser, adress=$adress, fullname=$fullname]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
     if (userId != null) {
       _json[r'userId'] = userId;
+    }
+        if (id != null) {
+      _json[r'id'] = id;
     }
     if (email != null) {
       _json[r'email'] = email;
@@ -120,6 +127,7 @@ class Users {
 
       return Users(
         userId: mapValueOfType<int>(json, r'userId'),
+        id: mapValueOfType<int>(json, r'id'),
         email: mapValueOfType<String>(json, r'email'),
         typeUser: mapValueOfType<String>(json, r'typeUser'),
         adress: mapValueOfType<String>(json, r'adress'),
