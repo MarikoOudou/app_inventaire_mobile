@@ -46,6 +46,7 @@ class InventaireRepository {
       int id_codification, int id_periode_inventaire) async {
     print("id_codification :" + id_codification.toString());
     print("id_periode_inventaire :" + id_periode_inventaire.toString());
+    print("------------------------------- "+(URL_API + "/inventaire").toString());
 
     ResponseData result =
         await inventaireApi.getInventaireByCodificationAndPeriodeInventaire(
@@ -72,9 +73,12 @@ class InventaireRepository {
       'userId': inventaire.user!.id.toString()
     };
 
+    print("------------------------------- "+(URL_API + "/inventaire").toString());
+    print(body.toString());
+
     http.Response result = await post(body, URL_API + "/inventaire");
 
-    print(jsonDecode(result.body));
+    // print(jsonDecode(result.body));
     return ResponseData.fromJson(jsonDecode(result.body)) ?? new ResponseData();
   }
 
