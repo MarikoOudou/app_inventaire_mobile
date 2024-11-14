@@ -8,10 +8,15 @@ import 'package:api_inventaire/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**nInventaire** | **String** |  | 
 **idInventaire** | **int** |  | [optional] 
 **etat** | **String** |  | [optional] 
 **nomAgent** | **String** |  | [optional] 
 **observations** | **String** |  | [optional] 
+**libelleImmo** | **String** |  | [optional] 
+**libelleLocalisation** | **String** |  | [optional] 
+**codeLocalisation** | **String** |  | [optional] 
+**libelleComplementaire** | **String** |  | [optional] 
 **dateInventaire** | [**DateTime**](DateTime.md) |  | [optional] 
 **codification** | [**Codification**](Codification.md) |  | [optional] 
 **periodeInventaire** | [**PeriodeInventaire**](PeriodeInventaire.md) |  | [optional] 

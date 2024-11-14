@@ -11,7 +11,6 @@
 import 'package:api_inventaire/api.dart';
 import 'package:test/test.dart';
 
-
 /// tests for UsersApi
 void main() {
   // final instance = UsersApi();
@@ -26,7 +25,7 @@ void main() {
 
     // Get All user
     //
-    //Future<List<Users>> getAll() async
+    //Future<ResponseData> getAll() async
     test('test getAll', () async {
       // TODO
     });
@@ -51,6 +50,5 @@ void main() {
     test('test update', () async {
       // TODO
     });
-
   });
 }

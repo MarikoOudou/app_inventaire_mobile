@@ -16,13 +16,13 @@ void main() {
   // final instance = Codification();
 
   group('test Codification', () {
-    // int idCodification
-    test('to test the property `idCodification`', () async {
+    // String nInventaire
+    test('to test the property `nInventaire`', () async {
       // TODO
     });
 
-    // String nInventaire
-    test('to test the property `nInventaire`', () async {
+    // int idCodification
+    test('to test the property `idCodification`', () async {
       // TODO
     });
 
@@ -56,8 +56,18 @@ void main() {
       // TODO
     });
 
+    // String libelleImmo
+    test('to test the property `libelleImmo`', () async {
+      // TODO
+    });
+
     // String sousLibelleFamille
     test('to test the property `sousLibelleFamille`', () async {
+      // TODO
+    });
+
+    // String libelleComplementaire
+    test('to test the property `libelleComplementaire`', () async {
       // TODO
     });
 
@@ -90,8 +100,5 @@ void main() {
     test('to test the property `libelleLocalisation`', () async {
       // TODO
     });
-
-
   });
-
 }

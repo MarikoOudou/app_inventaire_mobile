@@ -11,7 +11,6 @@
 import 'package:api_inventaire/api.dart';
 import 'package:test/test.dart';
 
-
 /// tests for PeriodeInventaireApi
 void main() {
   // final instance = PeriodeInventaireApi();
@@ -58,6 +57,5 @@ void main() {
     test('test updatePeriodeInventaire', () async {
       // TODO
     });
-
   });
 }

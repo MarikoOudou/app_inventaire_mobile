@@ -1,12 +1,10 @@
+// Openapi Generator last run: : 2024-11-14T12:00:00.545548
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:inventaire_immobilier/presentation/auth/login/data/services/usersService.dart';
 import 'package:inventaire_immobilier/routers/app_router.dart';
-import 'package:inventaire_immobilier/shared/constants/environnement.dart';
 import 'package:inventaire_immobilier/shared/themes/AppTheme.dart';
 import 'package:inventaire_immobilier/shared/themes/ColorsTheme.dart';
 import 'package:openapi_generator_annotations/openapi_generator_annotations.dart';
-import 'package:openapi_generator/openapi_generator.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 
 Future<void> main() async {
@@ -30,13 +28,23 @@ Future<void> main() async {
 
 final AppRouter _appRouter = AppRouter();
 
+// @Openapi(
+//     additionalProperties: AdditionalProperties(pubName: 'api_inventaire', pubAuthor: 'Mariko'),
+//     inputSpec: InputSpec (path: '../openapi.json'),
+//     generatorName: Generator.dart,
+//     outputDirectory: 'api_inventaire')
+
+
+
 @Openapi(
-    additionalProperties:
-        AdditionalProperties(pubName: 'api_inventaire', pubAuthor: 'Mariko'),
-    inputSpecFile: '$URL_API/v3/api-docs',
-    alwaysRun: true,
-    generatorName: Generator.dart,
-    outputDirectory: 'api_inventaire')
+   additionalProperties:
+   DioProperties(pubName: 'api_inventaire', pubAuthor: 'Mariko'),
+   inputSpec: InputSpec (path: './openapi.json'),
+   // typeMappings: {'Pet': 'ExamplePet'},
+   generatorName: Generator.dart,
+   runSourceGenOnOutput: true,
+   outputDirectory: './api_inventaire',
+)
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 

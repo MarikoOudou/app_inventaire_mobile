@@ -11,7 +11,6 @@
 import 'package:api_inventaire/api.dart';
 import 'package:test/test.dart';
 
-
 /// tests for InventaireApi
 void main() {
   // final instance = InventaireApi();
@@ -58,6 +57,5 @@ void main() {
     test('test updateInventaire', () async {
       // TODO
     });
-
   });
 }

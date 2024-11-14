@@ -144,7 +144,7 @@ class InventaireScreenState extends State<InventaireScreen> {
                 text: currentState.codification.libelleLocalisation.toString());
 
             _libelle_complementaire_controller = TextEditingController(
-                text: currentState.codification.libelle_complementaire
+                text: currentState.codification.libelleComplementaire
                     .toString());
 
             _libelle_immo_controller = TextEditingController(
@@ -404,7 +404,7 @@ class InventaireScreenState extends State<InventaireScreen> {
       onPressed: disable
           ? null
           : (() async {
-              users.id = int.parse(await Storage.get(StorageKeys.id) ?? "0");
+              // users.id = int.parse(await Storage.get(StorageKeys.id) ?? "0");
               users.userId =
                   int.parse(await Storage.get(StorageKeys.id) ?? "0");
 
@@ -413,19 +413,23 @@ class InventaireScreenState extends State<InventaireScreen> {
               Inventaire inventaire = Inventaire(
                   observations: _observaton_controller.text,
                   etat: _etat_controller.text,
-                  libelle_complementaire:
+                  libelleComplementaire:
                       _libelle_complementaire_controller.text,
-                  libelle_immo: _libelle_immo_controller.text,
-                  code_localisation: _code_localisation_controller.text,
-                  libelle_localisation: _libelle_localisation_controller.text,
+                  libelleImmo: _libelle_immo_controller.text,
+                  codeLocalisation: _code_localisation_controller.text,
+                  libelleLocalisation: _libelle_localisation_controller.text,
                   nomAgent: await Storage.get(StorageKeys.fullname),
                   dateInventaire: DateTime.now(),
                   codification: codification,
                   periodeInventaire: periodeInventaire,
-                  user: users);
+                  user: users, nInventaire: '');
               widget._inventaireBloc
                   .add(CreateInventaireEvent(inventaire: inventaire));
             }),
+      style: TextButton.styleFrom(
+        shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(Radius.circular(10))),
+      ),
       child: Padding(
         padding: EdgeInsets.all(13),
         child: Text('Enregistrer',
@@ -433,10 +437,6 @@ class InventaireScreenState extends State<InventaireScreen> {
                 // color: ColorTheme.primary,
                 fontSize: 16,
                 fontWeight: FontWeight.bold)),
-      ),
-      style: TextButton.styleFrom(
-        shape: const RoundedRectangleBorder(
-            borderRadius: BorderRadius.all(Radius.circular(10))),
       ),
     );
   }

@@ -13,19 +13,22 @@ part of openapi.api;
 class Inventaire {
   /// Returns a new [Inventaire] instance.
   Inventaire({
+    required this.nInventaire,
     this.idInventaire,
     this.etat,
     this.nomAgent,
     this.observations,
-    this.libelle_complementaire,
-    this.libelle_immo,
-    this.code_localisation,
-    this.libelle_localisation,
+    this.libelleImmo,
+    this.libelleLocalisation,
+    this.codeLocalisation,
+    this.libelleComplementaire,
     this.dateInventaire,
     this.codification,
     this.periodeInventaire,
     this.user,
   });
+
+  String nInventaire;
 
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
@@ -58,10 +61,38 @@ class Inventaire {
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
   String? observations;
-  String? libelle_complementaire;
-  String? libelle_immo;
-  String? libelle_localisation;
-  String? code_localisation;
+
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? libelleImmo;
+
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? libelleLocalisation;
+
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? codeLocalisation;
+
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? libelleComplementaire;
 
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
@@ -96,78 +127,108 @@ class Inventaire {
   Users? user;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is Inventaire &&
-     other.idInventaire == idInventaire &&
-     other.etat == etat &&
-     other.nomAgent == nomAgent &&
-     other.observations == observations &&
-     other.libelle_complementaire == libelle_complementaire &&
-     other.libelle_immo == libelle_immo &&
-     other.code_localisation == code_localisation &&
-     other.libelle_localisation == libelle_localisation &&
-     other.dateInventaire == dateInventaire &&
-     other.codification == codification &&
-     other.periodeInventaire == periodeInventaire &&
-     other.user == user;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is Inventaire &&
+          other.nInventaire == nInventaire &&
+          other.idInventaire == idInventaire &&
+          other.etat == etat &&
+          other.nomAgent == nomAgent &&
+          other.observations == observations &&
+          other.libelleImmo == libelleImmo &&
+          other.libelleLocalisation == libelleLocalisation &&
+          other.codeLocalisation == codeLocalisation &&
+          other.libelleComplementaire == libelleComplementaire &&
+          other.dateInventaire == dateInventaire &&
+          other.codification == codification &&
+          other.periodeInventaire == periodeInventaire &&
+          other.user == user;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (idInventaire == null ? 0 : idInventaire!.hashCode) +
-    (etat == null ? 0 : etat!.hashCode) +
-    (nomAgent == null ? 0 : nomAgent!.hashCode) +
-    (observations == null ? 0 : observations!.hashCode) +
-    (libelle_complementaire == null ? 0 : libelle_complementaire!.hashCode) +
-    (libelle_immo == null ? 0 : libelle_immo!.hashCode) +
-    (code_localisation == null ? 0 : code_localisation!.hashCode) +
-    (libelle_localisation == null ? 0 : libelle_localisation!.hashCode) +
-    (dateInventaire == null ? 0 : dateInventaire!.hashCode) +
-    (codification == null ? 0 : codification!.hashCode) +
-    (periodeInventaire == null ? 0 : periodeInventaire!.hashCode) +
-    (user == null ? 0 : user!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (nInventaire.hashCode) +
+      (idInventaire == null ? 0 : idInventaire!.hashCode) +
+      (etat == null ? 0 : etat!.hashCode) +
+      (nomAgent == null ? 0 : nomAgent!.hashCode) +
+      (observations == null ? 0 : observations!.hashCode) +
+      (libelleImmo == null ? 0 : libelleImmo!.hashCode) +
+      (libelleLocalisation == null ? 0 : libelleLocalisation!.hashCode) +
+      (codeLocalisation == null ? 0 : codeLocalisation!.hashCode) +
+      (libelleComplementaire == null ? 0 : libelleComplementaire!.hashCode) +
+      (dateInventaire == null ? 0 : dateInventaire!.hashCode) +
+      (codification == null ? 0 : codification!.hashCode) +
+      (periodeInventaire == null ? 0 : periodeInventaire!.hashCode) +
+      (user == null ? 0 : user!.hashCode);
 
   @override
-  String toString() => 'Inventaire[idInventaire=$idInventaire, etat=$etat, nomAgent=$nomAgent, observations=$observations, dateInventaire=$dateInventaire, codification=$codification, periodeInventaire=$periodeInventaire, user=$user]';
+  String toString() =>
+      'Inventaire[nInventaire=$nInventaire, idInventaire=$idInventaire, etat=$etat, nomAgent=$nomAgent, observations=$observations, libelleImmo=$libelleImmo, libelleLocalisation=$libelleLocalisation, codeLocalisation=$codeLocalisation, libelleComplementaire=$libelleComplementaire, dateInventaire=$dateInventaire, codification=$codification, periodeInventaire=$periodeInventaire, user=$user]';
 
   Map<String, dynamic> toJson() {
-    final _json = <String, dynamic>{};
-    if (idInventaire != null) {
-      _json[r'id_inventaire'] = idInventaire;
+    final json = <String, dynamic>{};
+    json[r'n_inventaire'] = this.nInventaire;
+    if (this.idInventaire != null) {
+      json[r'id_inventaire'] = this.idInventaire;
+    } else {
+      json[r'id_inventaire'] = null;
     }
-    if (etat != null) {
-      _json[r'etat'] = etat;
+    if (this.etat != null) {
+      json[r'etat'] = this.etat;
+    } else {
+      json[r'etat'] = null;
     }
-    if (nomAgent != null) {
-      _json[r'nom_agent'] = nomAgent;
+    if (this.nomAgent != null) {
+      json[r'nom_agent'] = this.nomAgent;
+    } else {
+      json[r'nom_agent'] = null;
     }
-    if (observations != null) {
-      _json[r'observations'] = observations;
+    if (this.observations != null) {
+      json[r'observations'] = this.observations;
+    } else {
+      json[r'observations'] = null;
     }
-        if (libelle_complementaire != null) {
-      _json[r'libelle_complementaire'] = libelle_complementaire;
+    if (this.libelleImmo != null) {
+      json[r'libelle_immo'] = this.libelleImmo;
+    } else {
+      json[r'libelle_immo'] = null;
     }
-        if (libelle_immo != null) {
-      _json[r'libelle_immo'] = libelle_immo;
+    if (this.libelleLocalisation != null) {
+      json[r'libelle_localisation'] = this.libelleLocalisation;
+    } else {
+      json[r'libelle_localisation'] = null;
     }
-        if (code_localisation != null) {
-      _json[r'code_localisation'] = code_localisation;
+    if (this.codeLocalisation != null) {
+      json[r'code_localisation'] = this.codeLocalisation;
+    } else {
+      json[r'code_localisation'] = null;
     }
-    if (libelle_localisation != null) {
-      _json[r'libelle_localisation'] = libelle_localisation;
+    if (this.libelleComplementaire != null) {
+      json[r'libelle_complementaire'] = this.libelleComplementaire;
+    } else {
+      json[r'libelle_complementaire'] = null;
     }
-    if (dateInventaire != null) {
-      _json[r'date_inventaire'] = dateInventaire!.toUtc().toIso8601String();
+    if (this.dateInventaire != null) {
+      json[r'date_inventaire'] = this.dateInventaire!.toUtc().toIso8601String();
+    } else {
+      json[r'date_inventaire'] = null;
     }
-    if (codification != null) {
-      _json[r'codification'] = codification;
+    if (this.codification != null) {
+      json[r'codification'] = this.codification;
+    } else {
+      json[r'codification'] = null;
     }
-    if (periodeInventaire != null) {
-      _json[r'periodeInventaire'] = periodeInventaire;
+    if (this.periodeInventaire != null) {
+      json[r'periodeInventaire'] = this.periodeInventaire;
+    } else {
+      json[r'periodeInventaire'] = null;
     }
-    if (user != null) {
-      _json[r'user'] = user;
+    if (this.user != null) {
+      json[r'user'] = this.user;
+    } else {
+      json[r'user'] = null;
     }
-    return _json;
+    return json;
   }
 
   /// Returns a new [Inventaire] instance and imports its values from
@@ -182,31 +243,40 @@ class Inventaire {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "Inventaire[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "Inventaire[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "Inventaire[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "Inventaire[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
       return Inventaire(
+        nInventaire: mapValueOfType<String>(json, r'n_inventaire')!,
         idInventaire: mapValueOfType<int>(json, r'id_inventaire'),
         etat: mapValueOfType<String>(json, r'etat'),
         nomAgent: mapValueOfType<String>(json, r'nom_agent'),
         observations: mapValueOfType<String>(json, r'observations'),
-        libelle_complementaire: mapValueOfType<String>(json, r'libelle_complementaire'),
-        libelle_immo: mapValueOfType<String>(json, r'libelle_immo'),
-        code_localisation: mapValueOfType<String>(json, r'code_localisation'),
-        libelle_localisation: mapValueOfType<String>(json, r'libelle_localisation'),
-        dateInventaire: mapDateTime(json, r'date_inventaire', ''),
+        libelleImmo: mapValueOfType<String>(json, r'libelle_immo'),
+        libelleLocalisation:
+            mapValueOfType<String>(json, r'libelle_localisation'),
+        codeLocalisation: mapValueOfType<String>(json, r'code_localisation'),
+        libelleComplementaire:
+            mapValueOfType<String>(json, r'libelle_complementaire'),
+        dateInventaire: mapDateTime(json, r'date_inventaire', r''),
         codification: Codification.fromJson(json[r'codification']),
-        periodeInventaire: PeriodeInventaire.fromJson(json[r'periodeInventaire']),
+        periodeInventaire:
+            PeriodeInventaire.fromJson(json[r'periodeInventaire']),
         user: Users.fromJson(json[r'user']),
       );
     }
     return null;
   }
 
-  static List<Inventaire>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<Inventaire> listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <Inventaire>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -234,15 +304,19 @@ class Inventaire {
   }
 
   // maps a json object with a list of Inventaire-objects as value to a dart map
-  static Map<String, List<Inventaire>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<Inventaire>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<Inventaire>>{};
     if (json is Map && json.isNotEmpty) {
-      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      // ignore: parameter_assignments
+      json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        final value = Inventaire.listFromJson(entry.value, growable: growable,);
-        if (value != null) {
-          map[entry.key] = value;
-        }
+        map[entry.key] = Inventaire.listFromJson(
+          entry.value,
+          growable: growable,
+        );
       }
     }
     return map;
@@ -250,6 +324,6 @@ class Inventaire {
 
   /// The list of required keys that must be present in a JSON.
   static const requiredKeys = <String>{
+    'n_inventaire',
   };
 }
-

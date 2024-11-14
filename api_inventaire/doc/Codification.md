@@ -8,15 +8,17 @@ import 'package:api_inventaire/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**idCodification** | **int** |  | [optional] 
 **nInventaire** | **String** |  | 
+**idCodification** | **int** |  | [optional] 
 **codeGuichet** | **String** |  | [optional] 
 **departement** | **String** |  | [optional] 
 **nSerie** | **String** |  | [optional] 
 **direction** | **String** |  | [optional] 
 **famille** | **String** |  | [optional] 
 **libelleFamille** | **String** |  | [optional] 
+**libelleImmo** | **String** |  | [optional] 
 **sousLibelleFamille** | **String** |  | [optional] 
+**libelleComplementaire** | **String** |  | [optional] 
 **niveau** | **String** |  | [optional] 
 **service** | **String** |  | [optional] 
 **sousFamille** | **String** |  | [optional] 

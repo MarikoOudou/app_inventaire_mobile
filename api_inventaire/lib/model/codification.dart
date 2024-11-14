@@ -13,18 +13,17 @@ part of openapi.api;
 class Codification {
   /// Returns a new [Codification] instance.
   Codification({
-    this.id,
-    this.idCodification,
     required this.nInventaire,
+    this.idCodification,
     this.codeGuichet,
-    this.libelleImmo,
-    this.libelle_complementaire,
     this.departement,
     this.nSerie,
     this.direction,
     this.famille,
     this.libelleFamille,
+    this.libelleImmo,
     this.sousLibelleFamille,
+    this.libelleComplementaire,
     this.niveau,
     this.service,
     this.sousFamille,
@@ -32,15 +31,6 @@ class Codification {
     this.libelleAgence,
     this.libelleLocalisation,
   });
-
-  ///
-  /// Please note: This property should have been non-nullable! Since the specification file
-  /// does not include a default value (using the "default:" property), however, the generated
-  /// source code must fall back to having a nullable type.
-  /// Consider adding a "default:" property in the specification file to hide this note.
-  ///
-  int? idCodification;
-  int? id;
 
   String nInventaire;
 
@@ -50,9 +40,15 @@ class Codification {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
+  int? idCodification;
+
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
   String? codeGuichet;
-  String? libelle_complementaire;
-  String? libelleImmo;
 
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
@@ -100,7 +96,23 @@ class Codification {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
+  String? libelleImmo;
+
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
   String? sousLibelleFamille;
+
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? libelleComplementaire;
 
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
@@ -151,106 +163,136 @@ class Codification {
   String? libelleLocalisation;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is Codification &&
-     other.idCodification == idCodification &&
-     other.id == id &&
-     other.nInventaire == nInventaire &&
-     other.codeGuichet == codeGuichet &&
-     other.libelle_complementaire == libelle_complementaire &&
-     other.libelleImmo == libelleImmo &&
-     other.departement == departement &&
-     other.nSerie == nSerie &&
-     other.direction == direction &&
-     other.famille == famille &&
-     other.libelleFamille == libelleFamille &&
-     other.sousLibelleFamille == sousLibelleFamille &&
-     other.niveau == niveau &&
-     other.service == service &&
-     other.sousFamille == sousFamille &&
-     other.codeLocalisation == codeLocalisation &&
-     other.libelleAgence == libelleAgence &&
-     other.libelleLocalisation == libelleLocalisation;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is Codification &&
+          other.nInventaire == nInventaire &&
+          other.idCodification == idCodification &&
+          other.codeGuichet == codeGuichet &&
+          other.departement == departement &&
+          other.nSerie == nSerie &&
+          other.direction == direction &&
+          other.famille == famille &&
+          other.libelleFamille == libelleFamille &&
+          other.libelleImmo == libelleImmo &&
+          other.sousLibelleFamille == sousLibelleFamille &&
+          other.libelleComplementaire == libelleComplementaire &&
+          other.niveau == niveau &&
+          other.service == service &&
+          other.sousFamille == sousFamille &&
+          other.codeLocalisation == codeLocalisation &&
+          other.libelleAgence == libelleAgence &&
+          other.libelleLocalisation == libelleLocalisation;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (idCodification == null ? 0 : idCodification!.hashCode) +
-    (id == null ? 0 : id!.hashCode) +
-    (nInventaire.hashCode) +
-    (codeGuichet == null ? 0 : codeGuichet!.hashCode) +
-    (libelle_complementaire == null ? 0 : libelle_complementaire!.hashCode) +
-    (libelleImmo == null ? 0 : libelleImmo!.hashCode) +
-    (departement == null ? 0 : departement!.hashCode) +
-    (nSerie == null ? 0 : nSerie!.hashCode) +
-    (direction == null ? 0 : direction!.hashCode) +
-    (famille == null ? 0 : famille!.hashCode) +
-    (libelleFamille == null ? 0 : libelleFamille!.hashCode) +
-    (sousLibelleFamille == null ? 0 : sousLibelleFamille!.hashCode) +
-    (niveau == null ? 0 : niveau!.hashCode) +
-    (service == null ? 0 : service!.hashCode) +
-    (sousFamille == null ? 0 : sousFamille!.hashCode) +
-    (codeLocalisation == null ? 0 : codeLocalisation!.hashCode) +
-    (libelleAgence == null ? 0 : libelleAgence!.hashCode) +
-    (libelleLocalisation == null ? 0 : libelleLocalisation!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (nInventaire.hashCode) +
+      (idCodification == null ? 0 : idCodification!.hashCode) +
+      (codeGuichet == null ? 0 : codeGuichet!.hashCode) +
+      (departement == null ? 0 : departement!.hashCode) +
+      (nSerie == null ? 0 : nSerie!.hashCode) +
+      (direction == null ? 0 : direction!.hashCode) +
+      (famille == null ? 0 : famille!.hashCode) +
+      (libelleFamille == null ? 0 : libelleFamille!.hashCode) +
+      (libelleImmo == null ? 0 : libelleImmo!.hashCode) +
+      (sousLibelleFamille == null ? 0 : sousLibelleFamille!.hashCode) +
+      (libelleComplementaire == null ? 0 : libelleComplementaire!.hashCode) +
+      (niveau == null ? 0 : niveau!.hashCode) +
+      (service == null ? 0 : service!.hashCode) +
+      (sousFamille == null ? 0 : sousFamille!.hashCode) +
+      (codeLocalisation == null ? 0 : codeLocalisation!.hashCode) +
+      (libelleAgence == null ? 0 : libelleAgence!.hashCode) +
+      (libelleLocalisation == null ? 0 : libelleLocalisation!.hashCode);
 
   @override
-  String toString() => 'Codification[id=$id,idCodification=$idCodification, nInventaire=$nInventaire, codeGuichet=$codeGuichet, departement=$departement, nSerie=$nSerie, direction=$direction, famille=$famille, libelleFamille=$libelleFamille, sousLibelleFamille=$sousLibelleFamille, niveau=$niveau, service=$service, sousFamille=$sousFamille, codeLocalisation=$codeLocalisation, libelleAgence=$libelleAgence, libelleLocalisation=$libelleLocalisation]';
+  String toString() =>
+      'Codification[nInventaire=$nInventaire, idCodification=$idCodification, codeGuichet=$codeGuichet, departement=$departement, nSerie=$nSerie, direction=$direction, famille=$famille, libelleFamille=$libelleFamille, libelleImmo=$libelleImmo, sousLibelleFamille=$sousLibelleFamille, libelleComplementaire=$libelleComplementaire, niveau=$niveau, service=$service, sousFamille=$sousFamille, codeLocalisation=$codeLocalisation, libelleAgence=$libelleAgence, libelleLocalisation=$libelleLocalisation]';
 
   Map<String, dynamic> toJson() {
-    final _json = <String, dynamic>{};
-    if (idCodification != null) {
-      _json[r'id_codification'] = idCodification;
+    final json = <String, dynamic>{};
+    json[r'n_inventaire'] = this.nInventaire;
+    if (this.idCodification != null) {
+      json[r'id_codification'] = this.idCodification;
+    } else {
+      json[r'id_codification'] = null;
     }
-        if (id != null) {
-      _json[r'id'] = id;
+    if (this.codeGuichet != null) {
+      json[r'code_guichet'] = this.codeGuichet;
+    } else {
+      json[r'code_guichet'] = null;
     }
-      _json[r'n_inventaire'] = nInventaire;
-    if (codeGuichet != null) {
-      _json[r'code_guichet'] = codeGuichet;
+    if (this.departement != null) {
+      json[r'departement'] = this.departement;
+    } else {
+      json[r'departement'] = null;
     }
-        if (libelle_complementaire != null) {
-      _json[r'libelle_complementaire'] = libelle_complementaire;
+    if (this.nSerie != null) {
+      json[r'n_serie'] = this.nSerie;
+    } else {
+      json[r'n_serie'] = null;
     }
-    if (libelleImmo != null) {
-      _json[r'libelle_immo'] = libelleImmo;
+    if (this.direction != null) {
+      json[r'direction'] = this.direction;
+    } else {
+      json[r'direction'] = null;
     }
-    if (departement != null) {
-      _json[r'departement'] = departement;
+    if (this.famille != null) {
+      json[r'famille'] = this.famille;
+    } else {
+      json[r'famille'] = null;
     }
-    if (nSerie != null) {
-      _json[r'n_serie'] = nSerie;
+    if (this.libelleFamille != null) {
+      json[r'libelle_famille'] = this.libelleFamille;
+    } else {
+      json[r'libelle_famille'] = null;
     }
-    if (direction != null) {
-      _json[r'direction'] = direction;
+    if (this.libelleImmo != null) {
+      json[r'libelle_immo'] = this.libelleImmo;
+    } else {
+      json[r'libelle_immo'] = null;
     }
-    if (famille != null) {
-      _json[r'famille'] = famille;
+    if (this.sousLibelleFamille != null) {
+      json[r'sous_libelle_famille'] = this.sousLibelleFamille;
+    } else {
+      json[r'sous_libelle_famille'] = null;
     }
-    if (libelleFamille != null) {
-      _json[r'libelle_famille'] = libelleFamille;
+    if (this.libelleComplementaire != null) {
+      json[r'libelle_complementaire'] = this.libelleComplementaire;
+    } else {
+      json[r'libelle_complementaire'] = null;
     }
-    if (sousLibelleFamille != null) {
-      _json[r'sous_libelle_famille'] = sousLibelleFamille;
+    if (this.niveau != null) {
+      json[r'niveau'] = this.niveau;
+    } else {
+      json[r'niveau'] = null;
     }
-    if (niveau != null) {
-      _json[r'niveau'] = niveau;
+    if (this.service != null) {
+      json[r'service'] = this.service;
+    } else {
+      json[r'service'] = null;
     }
-    if (service != null) {
-      _json[r'service'] = service;
+    if (this.sousFamille != null) {
+      json[r'sous_famille'] = this.sousFamille;
+    } else {
+      json[r'sous_famille'] = null;
     }
-    if (sousFamille != null) {
-      _json[r'sous_famille'] = sousFamille;
+    if (this.codeLocalisation != null) {
+      json[r'codeLocalisation'] = this.codeLocalisation;
+    } else {
+      json[r'codeLocalisation'] = null;
     }
-    if (codeLocalisation != null) {
-      _json[r'code_localisation'] = codeLocalisation;
+    if (this.libelleAgence != null) {
+      json[r'libelle_agence'] = this.libelleAgence;
+    } else {
+      json[r'libelle_agence'] = null;
     }
-    if (libelleAgence != null) {
-      _json[r'libelle_agence'] = libelleAgence;
+    if (this.libelleLocalisation != null) {
+      json[r'libelle_localisation'] = this.libelleLocalisation;
+    } else {
+      json[r'libelle_localisation'] = null;
     }
-    if (libelleLocalisation != null) {
-      _json[r'libelle_localisation'] = libelleLocalisation;
-    }
-    return _json;
+    return json;
   }
 
   /// Returns a new [Codification] instance and imports its values from
@@ -265,37 +307,44 @@ class Codification {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "Codification[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "Codification[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "Codification[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "Codification[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
       return Codification(
-        id: mapValueOfType<int>(json, r'id'),
-        idCodification: mapValueOfType<int>(json, r'id_codification'),
         nInventaire: mapValueOfType<String>(json, r'n_inventaire')!,
+        idCodification: mapValueOfType<int>(json, r'id_codification'),
         codeGuichet: mapValueOfType<String>(json, r'code_guichet'),
-        libelle_complementaire: mapValueOfType<String>(json, r'libelle_complementaire'),
-        libelleImmo: mapValueOfType<String>(json, r'libelle_immo'),
         departement: mapValueOfType<String>(json, r'departement'),
         nSerie: mapValueOfType<String>(json, r'n_serie'),
         direction: mapValueOfType<String>(json, r'direction'),
         famille: mapValueOfType<String>(json, r'famille'),
         libelleFamille: mapValueOfType<String>(json, r'libelle_famille'),
-        sousLibelleFamille: mapValueOfType<String>(json, r'sous_libelle_famille'),
+        libelleImmo: mapValueOfType<String>(json, r'libelle_immo'),
+        sousLibelleFamille:
+            mapValueOfType<String>(json, r'sous_libelle_famille'),
+        libelleComplementaire:
+            mapValueOfType<String>(json, r'libelle_complementaire'),
         niveau: mapValueOfType<String>(json, r'niveau'),
         service: mapValueOfType<String>(json, r'service'),
         sousFamille: mapValueOfType<String>(json, r'sous_famille'),
-        codeLocalisation: mapValueOfType<String>(json, r'code_localisation'),
+        codeLocalisation: mapValueOfType<String>(json, r'codeLocalisation'),
         libelleAgence: mapValueOfType<String>(json, r'libelle_agence'),
-        libelleLocalisation: mapValueOfType<String>(json, r'libelle_localisation'),
+        libelleLocalisation:
+            mapValueOfType<String>(json, r'libelle_localisation'),
       );
     }
     return null;
   }
 
-  static List<Codification>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<Codification> listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <Codification>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -323,15 +372,19 @@ class Codification {
   }
 
   // maps a json object with a list of Codification-objects as value to a dart map
-  static Map<String, List<Codification>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<Codification>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<Codification>>{};
     if (json is Map && json.isNotEmpty) {
-      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      // ignore: parameter_assignments
+      json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        final value = Codification.listFromJson(entry.value, growable: growable,);
-        if (value != null) {
-          map[entry.key] = value;
-        }
+        map[entry.key] = Codification.listFromJson(
+          entry.value,
+          growable: growable,
+        );
       }
     }
     return map;
@@ -342,4 +395,3 @@ class Codification {
     'n_inventaire',
   };
 }
-

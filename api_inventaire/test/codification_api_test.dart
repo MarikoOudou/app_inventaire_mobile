@@ -11,7 +11,6 @@
 import 'package:api_inventaire/api.dart';
 import 'package:test/test.dart';
 
-
 /// tests for CodificationApi
 void main() {
   // final instance = CodificationApi();
@@ -65,6 +64,5 @@ void main() {
     test('test updateCodification', () async {
       // TODO
     });
-
   });
 }

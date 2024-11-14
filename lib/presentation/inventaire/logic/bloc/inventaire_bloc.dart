@@ -8,9 +8,9 @@ part 'inventaire_event.dart';
 part 'inventaire_state.dart';
 
 class InventaireBloc extends Bloc<InventaireEvent, InventaireState> {
-  InventaireRepository inventaireRepository = new InventaireRepository();
-  PeriodeInventaire _periodeInventaire = new PeriodeInventaire();
-  Codification _codification = new Codification(nInventaire: '');
+  InventaireRepository inventaireRepository =  InventaireRepository();
+  PeriodeInventaire _periodeInventaire =  PeriodeInventaire();
+  Codification _codification =  Codification(nInventaire: '');
   InventaireBloc() : super(InventaireInitial()) {
     on<InventaireEvent>((event, emit) {
       // TODO: implement event handler
@@ -35,12 +35,12 @@ class InventaireBloc extends Bloc<InventaireEvent, InventaireState> {
         _codification = Codification.fromJson(response.data)!;
         getPeriodeInventaire(
             Codification.fromJson(response.data)?.idCodification ??
-                Codification.fromJson(response.data)?.id ??
+                Codification.fromJson(response.data)?.idCodification ??
                 0);
 
         // emit(InInventaireState(
         //     codification: Codification?.fromJson(response.data) ??
-        //         new Codification(nInventaire: '')));
+        //          Codification(nInventaire: '')));
       } else {
         emit(ErrorInventaireState(
           errorMessage: response.message ?? "",

@@ -21,6 +21,11 @@ void main() {
       // TODO
     });
 
+    // String fullname
+    test('to test the property `fullname`', () async {
+      // TODO
+    });
+
     // String email
     test('to test the property `email`', () async {
       // TODO
@@ -36,12 +41,9 @@ void main() {
       // TODO
     });
 
-    // String fullname
-    test('to test the property `fullname`', () async {
+    // Set<Inventaire> inventaires (default value: const {})
+    test('to test the property `inventaires`', () async {
       // TODO
     });
-
-
   });
-
 }

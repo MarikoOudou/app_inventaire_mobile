@@ -1,10 +1,8 @@
-import 'package:api_inventaire/api.dart';
+// import 'package:api_inventaire/api.dart';
 import 'package:art_sweetalert/art_sweetalert.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:inventaire_immobilier/presentation/auth/login/data/services/usersService.dart';
 import 'package:inventaire_immobilier/shared/themes/ColorsTheme.dart';
-
 import '../../../../shared/widgets/input_widget.dart';
 import '../logic/bloc/login_bloc.dart';
 // import 'package:inventaire_immobilier/presentation/auth/login/screen/index.dart';
@@ -12,9 +10,8 @@ import '../logic/bloc/login_bloc.dart';
 class LoginScreen extends StatefulWidget {
   const LoginScreen({
     required LoginBloc loginBloc,
-    Key? key,
-  })  : _loginBloc = loginBloc,
-        super(key: key);
+    super.key,
+  })  : _loginBloc = loginBloc;
 
   final LoginBloc _loginBloc;
 
@@ -25,7 +22,8 @@ class LoginScreen extends StatefulWidget {
 }
 
 class LoginScreenState extends State<LoginScreen> {
-  TextEditingController _email_controller = TextEditingController();
+  // ignore: non_constant_identifier_names
+  final TextEditingController _email_controller = TextEditingController();
   // UsersApi _usersApi;
   // final UserService _userService = new UserService();
   // UsersApi _user = new UsersApi();
@@ -56,15 +54,13 @@ class LoginScreenState extends State<LoginScreen> {
 
     return BlocBuilder<LoginBloc, LoginState>(
         bloc: widget._loginBloc,
-        builder: (
-          BuildContext context,
-          LoginState currentState,
-        ) {
+        builder: (BuildContext context, LoginState currentState) {
           if (currentState is LoginLoading) {
             return const Center(
               child: CircularProgressIndicator(),
             );
           }
+
           if (currentState is ErrorLoginState) {
             WidgetsBinding.instance.addPostFrameCallback((_) {
               ArtSweetAlert.show(
@@ -79,6 +75,7 @@ class LoginScreenState extends State<LoginScreen> {
                       text: ""));
             });
           }
+
           if (currentState is InLoginState) {
             WidgetsBinding.instance.addPostFrameCallback((_) {
               Navigator.pushNamedAndRemoveUntil(
@@ -178,12 +175,11 @@ class LoginScreenState extends State<LoginScreen> {
           ? null
           : (() {
               print(_email_controller.text);
-              widget._loginBloc
-                  .add(SendDataLoginEvent(email: _email_controller.text));
+              widget._loginBloc.add(SendDataLoginEvent(email: _email_controller.text));
             }),
       // ignore: sort_child_properties_last
       child: const Padding(
-        padding: const EdgeInsets.all(13),
+        padding: EdgeInsets.all(13),
         child: Text('Se connecter',
             style: TextStyle(
                 // color: ColorTheme.primary,

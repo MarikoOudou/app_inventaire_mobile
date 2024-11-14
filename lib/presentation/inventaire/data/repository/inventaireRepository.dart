@@ -62,15 +62,15 @@ class InventaireRepository {
       'etat': inventaire.etat.toString(),
       'nom_agent': inventaire.nomAgent.toString(),
       'observations': inventaire.observations.toString(),
-      'libelle_immo': inventaire.libelle_immo.toString(),
-      'libelle_localisation': inventaire.libelle_localisation.toString(),
-      'code_localisation': inventaire.code_localisation.toString(),
-      'libelle_complementaire': inventaire.libelle_complementaire.toString(),
+      'libelle_immo': inventaire.libelleImmo.toString(),
+      'libelle_localisation': inventaire.libelleComplementaire.toString(),
+      'code_localisation': inventaire.codeLocalisation.toString(),
+      'libelle_complementaire': inventaire.libelleComplementaire.toString(),
       'date_inventaire': inventaire.dateInventaire.toString(),
-      'id_codification': inventaire.codification!.id.toString(),
+      'id_codification': inventaire.codification!.idCodification.toString(),
       'id_periode_inventaire':
           inventaire.periodeInventaire!.idPeriodeInventaire.toString(),
-      'userId': inventaire.user!.id.toString()
+      'userId': inventaire.user!.userId.toString()
     };
 
     print("------------------------------- "+(URL_API + "/inventaire").toString());

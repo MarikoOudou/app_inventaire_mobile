@@ -43,33 +43,42 @@ class ResponseData {
   Object? data;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is ResponseData &&
-     other.message == message &&
-     other.status == status &&
-     other.data == data;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is ResponseData &&
+          other.message == message &&
+          other.status == status &&
+          other.data == data;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (message == null ? 0 : message!.hashCode) +
-    (status == null ? 0 : status!.hashCode) +
-    (data == null ? 0 : data!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (message == null ? 0 : message!.hashCode) +
+      (status == null ? 0 : status!.hashCode) +
+      (data == null ? 0 : data!.hashCode);
 
   @override
-  String toString() => 'ResponseData[message=$message, status=$status, data=$data]';
+  String toString() =>
+      'ResponseData[message=$message, status=$status, data=$data]';
 
   Map<String, dynamic> toJson() {
-    final _json = <String, dynamic>{};
-    if (message != null) {
-      _json[r'message'] = message;
+    final json = <String, dynamic>{};
+    if (this.message != null) {
+      json[r'message'] = this.message;
+    } else {
+      json[r'message'] = null;
     }
-    if (status != null) {
-      _json[r'status'] = status;
+    if (this.status != null) {
+      json[r'status'] = this.status;
+    } else {
+      json[r'status'] = null;
     }
-    if (data != null) {
-      _json[r'data'] = data;
+    if (this.data != null) {
+      json[r'data'] = this.data;
+    } else {
+      json[r'data'] = null;
     }
-    return _json;
+    return json;
   }
 
   /// Returns a new [ResponseData] instance and imports its values from
@@ -84,8 +93,10 @@ class ResponseData {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "ResponseData[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "ResponseData[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "ResponseData[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "ResponseData[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -99,7 +110,10 @@ class ResponseData {
     return null;
   }
 
-  static List<ResponseData>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<ResponseData> listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <ResponseData>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -127,22 +141,24 @@ class ResponseData {
   }
 
   // maps a json object with a list of ResponseData-objects as value to a dart map
-  static Map<String, List<ResponseData>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<ResponseData>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<ResponseData>>{};
     if (json is Map && json.isNotEmpty) {
-      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      // ignore: parameter_assignments
+      json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        final value = ResponseData.listFromJson(entry.value, growable: growable,);
-        if (value != null) {
-          map[entry.key] = value;
-        }
+        map[entry.key] = ResponseData.listFromJson(
+          entry.value,
+          growable: growable,
+        );
       }
     }
     return map;
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

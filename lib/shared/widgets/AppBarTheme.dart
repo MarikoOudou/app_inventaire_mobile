@@ -5,7 +5,6 @@ import 'package:inventaire_immobilier/shared/constants/storage_keys.dart';
 import 'package:inventaire_immobilier/shared/storage.dart';
 
 import '../themes/ColorsTheme.dart';
-import '../themes/TextTheme.dart';
 
 class AppBarThemeCustom {
   // ignore: prefer_function_declarations_over_variables
@@ -29,14 +28,22 @@ class AppBarThemeCustom {
             ? Text(
                 title,
                 textAlign: TextAlign.center,
-                style: textTheme.headline3,
+                style: TextStyle(
+      fontSize: 20.0,
+      fontWeight: FontWeight.bold,
+      // color: ColorTheme.white,
+      fontStyle: FontStyle.normal),
               )
             : Column(
                 children: [
                   Text(
                     title,
                     textAlign: TextAlign.center,
-                    style: textTheme.headline3,
+                    style: TextStyle(
+      fontSize: 20.0,
+      fontWeight: FontWeight.bold,
+      // color: ColorTheme.white,
+      fontStyle: FontStyle.normal),
                   ),
                   Text(
                     title2!,

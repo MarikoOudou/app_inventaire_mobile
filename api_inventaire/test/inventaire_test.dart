@@ -16,6 +16,11 @@ void main() {
   // final instance = Inventaire();
 
   group('test Inventaire', () {
+    // String nInventaire
+    test('to test the property `nInventaire`', () async {
+      // TODO
+    });
+
     // int idInventaire
     test('to test the property `idInventaire`', () async {
       // TODO
@@ -33,6 +38,26 @@ void main() {
 
     // String observations
     test('to test the property `observations`', () async {
+      // TODO
+    });
+
+    // String libelleImmo
+    test('to test the property `libelleImmo`', () async {
+      // TODO
+    });
+
+    // String libelleLocalisation
+    test('to test the property `libelleLocalisation`', () async {
+      // TODO
+    });
+
+    // String codeLocalisation
+    test('to test the property `codeLocalisation`', () async {
+      // TODO
+    });
+
+    // String libelleComplementaire
+    test('to test the property `libelleComplementaire`', () async {
       // TODO
     });
 
@@ -55,8 +80,5 @@ void main() {
     test('to test the property `user`', () async {
       // TODO
     });
-
-
   });
-
 }

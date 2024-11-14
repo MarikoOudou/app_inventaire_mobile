@@ -10,9 +10,9 @@
 
 part of openapi.api;
 
-
 class CodificationApi {
-  CodificationApi([ApiClient? apiClient]) : apiClient = apiClient ?? defaultApiClient;
+  CodificationApi([ApiClient? apiClient])
+      : apiClient = apiClient ?? defaultApiClient;
 
   final ApiClient apiClient;
 
@@ -23,7 +23,9 @@ class CodificationApi {
   /// Parameters:
   ///
   /// * [Codification] codification (required):
-  Future<Response> createCodificationWithHttpInfo(Codification codification,) async {
+  Future<Response> createCodificationWithHttpInfo(
+    Codification codification,
+  ) async {
     // ignore: prefer_const_declarations
     final path = r'/codification';
 
@@ -36,7 +38,6 @@ class CodificationApi {
 
     const contentTypes = <String>['application/json'];
 
-
     return apiClient.invokeAPI(
       path,
       'POST',
@@ -53,17 +54,24 @@ class CodificationApi {
   /// Parameters:
   ///
   /// * [Codification] codification (required):
-  Future<Object?> createCodification(Codification codification,) async {
-    final response = await createCodificationWithHttpInfo(codification,);
+  Future<Object?> createCodification(
+    Codification codification,
+  ) async {
+    final response = await createCodificationWithHttpInfo(
+      codification,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Object',) as Object;
-    
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'Object',
+      ) as Object;
     }
     return null;
   }
@@ -75,7 +83,9 @@ class CodificationApi {
   /// Parameters:
   ///
   /// * [List<Codification>] codification (required):
-  Future<Response> createsWithHttpInfo(List<Codification> codification,) async {
+  Future<Response> createsWithHttpInfo(
+    List<Codification> codification,
+  ) async {
     // ignore: prefer_const_declarations
     final path = r'/codifications';
 
@@ -87,7 +97,6 @@ class CodificationApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -105,17 +114,24 @@ class CodificationApi {
   /// Parameters:
   ///
   /// * [List<Codification>] codification (required):
-  Future<Object?> creates(List<Codification> codification,) async {
-    final response = await createsWithHttpInfo(codification,);
+  Future<Object?> creates(
+    List<Codification> codification,
+  ) async {
+    final response = await createsWithHttpInfo(
+      codification,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Object',) as Object;
-    
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'Object',
+      ) as Object;
     }
     return null;
   }
@@ -135,7 +151,6 @@ class CodificationApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -157,9 +172,12 @@ class CodificationApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Object',) as Object;
-    
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'Object',
+      ) as Object;
     }
     return null;
   }
@@ -171,10 +189,12 @@ class CodificationApi {
   /// Parameters:
   ///
   /// * [String] codeLocalisation (required):
-  Future<Response> getByCodeLocalisationCodificationWithHttpInfo(String codeLocalisation,) async {
+  Future<Response> getByCodeLocalisationCodificationWithHttpInfo(
+    String codeLocalisation,
+  ) async {
     // ignore: prefer_const_declarations
     final path = r'/codifications/code_localisation/{code_localisation}'
-      .replaceAll('{code_localisation}', codeLocalisation);
+        .replaceAll('{code_localisation}', codeLocalisation);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -184,7 +204,6 @@ class CodificationApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -202,17 +221,24 @@ class CodificationApi {
   /// Parameters:
   ///
   /// * [String] codeLocalisation (required):
-  Future<Object?> getByCodeLocalisationCodification(String codeLocalisation,) async {
-    final response = await getByCodeLocalisationCodificationWithHttpInfo(codeLocalisation,);
+  Future<Object?> getByCodeLocalisationCodification(
+    String codeLocalisation,
+  ) async {
+    final response = await getByCodeLocalisationCodificationWithHttpInfo(
+      codeLocalisation,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Object',) as Object;
-    
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'Object',
+      ) as Object;
     }
     return null;
   }
@@ -224,10 +250,11 @@ class CodificationApi {
   /// Parameters:
   ///
   /// * [int] id (required):
-  Future<Response> getByIdCodificationWithHttpInfo(int id,) async {
+  Future<Response> getByIdCodificationWithHttpInfo(
+    int id,
+  ) async {
     // ignore: prefer_const_declarations
-    final path = r'/codifications/{id}'
-      .replaceAll('{id}', id.toString());
+    final path = r'/codifications/{id}'.replaceAll('{id}', id.toString());
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -237,7 +264,6 @@ class CodificationApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -255,17 +281,24 @@ class CodificationApi {
   /// Parameters:
   ///
   /// * [int] id (required):
-  Future<Object?> getByIdCodification(int id,) async {
-    final response = await getByIdCodificationWithHttpInfo(id,);
+  Future<Object?> getByIdCodification(
+    int id,
+  ) async {
+    final response = await getByIdCodificationWithHttpInfo(
+      id,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Object',) as Object;
-    
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'Object',
+      ) as Object;
     }
     return null;
   }
@@ -277,10 +310,12 @@ class CodificationApi {
   /// Parameters:
   ///
   /// * [String] nInventaire (required):
-  Future<Response> getByNInventaireCodificationWithHttpInfo(String nInventaire,) async {
+  Future<Response> getByNInventaireCodificationWithHttpInfo(
+    String nInventaire,
+  ) async {
     // ignore: prefer_const_declarations
     final path = r'/codifications/n_inventaire/{n_inventaire}'
-      .replaceAll('{n_inventaire}', nInventaire);
+        .replaceAll('{n_inventaire}', nInventaire);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -290,7 +325,6 @@ class CodificationApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -308,17 +342,24 @@ class CodificationApi {
   /// Parameters:
   ///
   /// * [String] nInventaire (required):
-  Future<ResponseData?> getByNInventaireCodification(String nInventaire,) async {
-    final response = await getByNInventaireCodificationWithHttpInfo(nInventaire,);
+  Future<ResponseData?> getByNInventaireCodification(
+    String nInventaire,
+  ) async {
+    final response = await getByNInventaireCodificationWithHttpInfo(
+      nInventaire,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'ResponseData',) as ResponseData;
-    
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'ResponseData',
+      ) as ResponseData;
     }
     return null;
   }
@@ -332,10 +373,12 @@ class CodificationApi {
   /// * [int] id (required):
   ///
   /// * [Codification] codification (required):
-  Future<Response> updateCodificationWithHttpInfo(int id, Codification codification,) async {
+  Future<Response> updateCodificationWithHttpInfo(
+    int id,
+    Codification codification,
+  ) async {
     // ignore: prefer_const_declarations
-    final path = r'/codification/{id}'
-      .replaceAll('{id}', id.toString());
+    final path = r'/codification/{id}'.replaceAll('{id}', id.toString());
 
     // ignore: prefer_final_locals
     Object? postBody = codification;
@@ -345,7 +388,6 @@ class CodificationApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -365,17 +407,26 @@ class CodificationApi {
   /// * [int] id (required):
   ///
   /// * [Codification] codification (required):
-  Future<Object?> updateCodification(int id, Codification codification,) async {
-    final response = await updateCodificationWithHttpInfo(id, codification,);
+  Future<Object?> updateCodification(
+    int id,
+    Codification codification,
+  ) async {
+    final response = await updateCodificationWithHttpInfo(
+      id,
+      codification,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Object',) as Object;
-    
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'Object',
+      ) as Object;
     }
     return null;
   }

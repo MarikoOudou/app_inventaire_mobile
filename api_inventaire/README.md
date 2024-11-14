@@ -54,48 +54,49 @@ try {
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *http://192.168.86.205:8080*
+All URIs are relative to *http://localhost:9000*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*CodificationApi* | [**createCodification**](doc\/CodificationApi.md#createcodification) | **POST** /codification | Create codification
-*CodificationApi* | [**creates**](doc\/CodificationApi.md#creates) | **POST** /codifications | Create multiple codification
-*CodificationApi* | [**getAllCodification**](doc\/CodificationApi.md#getallcodification) | **GET** /codifications | Get All Codification
-*CodificationApi* | [**getByCodeLocalisationCodification**](doc\/CodificationApi.md#getbycodelocalisationcodification) | **GET** /codifications/code_localisation/{code_localisation} | Get by code_localisation
-*CodificationApi* | [**getByIdCodification**](doc\/CodificationApi.md#getbyidcodification) | **GET** /codifications/{id} | Get By id
-*CodificationApi* | [**getByNInventaireCodification**](doc\/CodificationApi.md#getbyninventairecodification) | **GET** /codifications/n_inventaire/{n_inventaire} | Get by n° inventaire
-*CodificationApi* | [**updateCodification**](doc\/CodificationApi.md#updatecodification) | **PUT** /codification/{id} | Update codification
-*InventaireApi* | [**createInventaire**](doc\/InventaireApi.md#createinventaire) | **POST** /inventaire | Create inventaire
-*InventaireApi* | [**getAll1**](doc\/InventaireApi.md#getall1) | **GET** /inventaires | Get All inventaires
-*InventaireApi* | [**getByIdInventaire**](doc\/InventaireApi.md#getbyidinventaire) | **GET** /inventaire/{id} | Get by id
-*InventaireApi* | [**getByPeriode**](doc\/InventaireApi.md#getbyperiode) | **GET** /inventaires/{id_periode_inventaire} | Get All inventaires by periode
-*InventaireApi* | [**getInventaireByCodificationAndPeriodeInventaire**](doc\/InventaireApi.md#getinventairebycodificationandperiodeinventaire) | **GET** /inventaires/codification/{id_codification}/periodeinventaire/{id_periode_inventaire} | Get inventaire by codification and periode
-*InventaireApi* | [**updateInventaire**](doc\/InventaireApi.md#updateinventaire) | **PUT** /inventaire/{id} | Update inventaire
-*PeriodeInventaireApi* | [**activeOrDiseable**](doc\/PeriodeInventaireApi.md#activeordiseable) | **PATCH** /periodeinentaire/activeordiseable/{id} | Update periode by isActive
-*PeriodeInventaireApi* | [**createPeriodeInventaire**](doc\/PeriodeInventaireApi.md#createperiodeinventaire) | **POST** /periodeinentaire | Create periode inventaire
-*PeriodeInventaireApi* | [**getAllPeriodeInventaire**](doc\/PeriodeInventaireApi.md#getallperiodeinventaire) | **GET** /periodeinentaire | Get All periode inventaire
-*PeriodeInventaireApi* | [**getByIdPeriodeInventaire**](doc\/PeriodeInventaireApi.md#getbyidperiodeinventaire) | **GET** /periodeinentaire/{id} | Get by id
-*PeriodeInventaireApi* | [**getPeriodeInventaireIsActive**](doc\/PeriodeInventaireApi.md#getperiodeinventaireisactive) | **GET** /periodeinentaire/isactive | Get periode inventaire is active
-*PeriodeInventaireApi* | [**updatePeriodeInventaire**](doc\/PeriodeInventaireApi.md#updateperiodeinventaire) | **PUT** /periodeinentaire/{id} | Update periode inventaire
-*UsersApi* | [**create**](doc\/UsersApi.md#create) | **POST** /user | Create user
-*UsersApi* | [**getAll**](doc\/UsersApi.md#getall) | **GET** /users | Get All user
-*UsersApi* | [**getById**](doc\/UsersApi.md#getbyid) | **GET** /user/{users_id} | Get user by id
-*UsersApi* | [**getUserByEmail**](doc\/UsersApi.md#getuserbyemail) | **POST** /user/email | Get User By Email
-*UsersApi* | [**update**](doc\/UsersApi.md#update) | **PUT** /user/{users_id} | Update user
+*CodificationApi* | [**createCodification**](doc//CodificationApi.md#createcodification) | **POST** /codification | Create codification
+*CodificationApi* | [**creates**](doc//CodificationApi.md#creates) | **POST** /codifications | Create multiple codification
+*CodificationApi* | [**getAllCodification**](doc//CodificationApi.md#getallcodification) | **GET** /codifications | Get All Codification
+*CodificationApi* | [**getByCodeLocalisationCodification**](doc//CodificationApi.md#getbycodelocalisationcodification) | **GET** /codifications/code_localisation/{code_localisation} | Get by code_localisation
+*CodificationApi* | [**getByIdCodification**](doc//CodificationApi.md#getbyidcodification) | **GET** /codifications/{id} | Get By id
+*CodificationApi* | [**getByNInventaireCodification**](doc//CodificationApi.md#getbyninventairecodification) | **GET** /codifications/n_inventaire/{n_inventaire} | Get by n° inventaire
+*CodificationApi* | [**updateCodification**](doc//CodificationApi.md#updatecodification) | **PUT** /codification/{id} | Update codification
+*IndexApi* | [**getAllCodification1**](doc//IndexApi.md#getallcodification1) | **GET** / | index
+*InventaireApi* | [**createInventaire**](doc//InventaireApi.md#createinventaire) | **POST** /inventaire | Create inventaire
+*InventaireApi* | [**getAll1**](doc//InventaireApi.md#getall1) | **GET** /inventaires | Get All inventaires
+*InventaireApi* | [**getByIdInventaire**](doc//InventaireApi.md#getbyidinventaire) | **GET** /inventaire/{id} | Get by id
+*InventaireApi* | [**getByPeriode**](doc//InventaireApi.md#getbyperiode) | **GET** /inventaires/{id_periode_inventaire} | Get All inventaires by periode
+*InventaireApi* | [**getInventaireByCodificationAndPeriodeInventaire**](doc//InventaireApi.md#getinventairebycodificationandperiodeinventaire) | **GET** /inventaires/codification/{id_codification}/periodeinventaire/{id_periode_inventaire} | Get inventaire by codification and periode
+*InventaireApi* | [**updateInventaire**](doc//InventaireApi.md#updateinventaire) | **PUT** /inventaire/{id} | Update inventaire
+*PeriodeInventaireApi* | [**activeOrDiseable**](doc//PeriodeInventaireApi.md#activeordiseable) | **PATCH** /periodeinentaire/activeordiseable/{id} | Update periode by isActive
+*PeriodeInventaireApi* | [**createPeriodeInventaire**](doc//PeriodeInventaireApi.md#createperiodeinventaire) | **POST** /periodeinentaire | Create periode inventaire
+*PeriodeInventaireApi* | [**getAllPeriodeInventaire**](doc//PeriodeInventaireApi.md#getallperiodeinventaire) | **GET** /periodeinentaire | Get All periode inventaire
+*PeriodeInventaireApi* | [**getByIdPeriodeInventaire**](doc//PeriodeInventaireApi.md#getbyidperiodeinventaire) | **GET** /periodeinentaire/{id} | Get by id
+*PeriodeInventaireApi* | [**getPeriodeInventaireIsActive**](doc//PeriodeInventaireApi.md#getperiodeinventaireisactive) | **GET** /periodeinentaire/isactive | Get periode inventaire is active
+*PeriodeInventaireApi* | [**updatePeriodeInventaire**](doc//PeriodeInventaireApi.md#updateperiodeinventaire) | **PUT** /periodeinentaire/{id} | Update periode inventaire
+*UsersApi* | [**create**](doc//UsersApi.md#create) | **POST** /user | Create user
+*UsersApi* | [**getAll**](doc//UsersApi.md#getall) | **GET** /users | Get All user
+*UsersApi* | [**getById**](doc//UsersApi.md#getbyid) | **GET** /user/{users_id} | Get user by id
+*UsersApi* | [**getUserByEmail**](doc//UsersApi.md#getuserbyemail) | **POST** /user/email | Get User By Email
+*UsersApi* | [**update**](doc//UsersApi.md#update) | **PUT** /user/{users_id} | Update user
 
 
 ## Documentation For Models
 
- - [Codification](doc\/Codification.md)
- - [Inventaire](doc\/Inventaire.md)
- - [PeriodeInventaire](doc\/PeriodeInventaire.md)
- - [ResponseData](doc\/ResponseData.md)
- - [Users](doc\/Users.md)
+ - [Codification](doc//Codification.md)
+ - [Inventaire](doc//Inventaire.md)
+ - [PeriodeInventaire](doc//PeriodeInventaire.md)
+ - [ResponseData](doc//ResponseData.md)
+ - [Users](doc//Users.md)
 
 
 ## Documentation For Authorization
 
- All endpoints do not require authorization.
+Endpoints do not require authorization.
 
 
 ## Author

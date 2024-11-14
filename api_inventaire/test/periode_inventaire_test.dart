@@ -31,11 +31,6 @@ void main() {
       // TODO
     });
 
-    // bool isActive
-    test('to test the property `isActive`', () async {
-      // TODO
-    });
-
     // DateTime dateDebut
     test('to test the property `dateDebut`', () async {
       // TODO
@@ -46,7 +41,9 @@ void main() {
       // TODO
     });
 
-
+    // bool active
+    test('to test the property `active`', () async {
+      // TODO
+    });
   });
-
 }

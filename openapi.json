@@ -1,0 +1,974 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+        "title": "OpenAPI definition",
+        "version": "v0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:9000",
+            "description": "Generated server url"
+        }
+    ],
+    "paths": {
+        "/user/{users_id}": {
+            "get": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Get user by id",
+                "operationId": "getById",
+                "parameters": [
+                    {
+                        "name": "users_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Users"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Update user",
+                "operationId": "update",
+                "parameters": [
+                    {
+                        "name": "users_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Users"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Users"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/periodeinentaire/{id}": {
+            "get": {
+                "tags": [
+                    "Periode Inventaire"
+                ],
+                "summary": "Get by id",
+                "operationId": "getByIdPeriodeInventaire",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Periode Inventaire"
+                ],
+                "summary": "Update periode inventaire",
+                "operationId": "updatePeriodeInventaire",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PeriodeInventaire"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/inventaire/{id}": {
+            "get": {
+                "tags": [
+                    "Inventaire"
+                ],
+                "summary": "Get by id",
+                "operationId": "getByIdInventaire",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Inventaire"
+                ],
+                "summary": "Update inventaire",
+                "operationId": "updateInventaire",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Inventaire"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/codification/{id}": {
+            "put": {
+                "tags": [
+                    "Codification"
+                ],
+                "summary": "Update codification",
+                "operationId": "updateCodification",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Codification"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/user": {
+            "post": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Create user",
+                "operationId": "create",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Users"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/user/email": {
+            "post": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Get User By Email",
+                "operationId": "getUserByEmail",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Users"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResponseData"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/periodeinentaire": {
+            "get": {
+                "tags": [
+                    "Periode Inventaire"
+                ],
+                "summary": "Get All periode inventaire",
+                "operationId": "getAllPeriodeInventaire",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResponseData"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Periode Inventaire"
+                ],
+                "summary": "Create periode inventaire",
+                "operationId": "createPeriodeInventaire",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PeriodeInventaire"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/inventaire": {
+            "post": {
+                "tags": [
+                    "Inventaire"
+                ],
+                "summary": "Create inventaire",
+                "operationId": "createInventaire",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Inventaire"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResponseData"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/codifications": {
+            "get": {
+                "tags": [
+                    "Codification"
+                ],
+                "summary": "Get All Codification",
+                "operationId": "getAllCodification",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Codification"
+                ],
+                "summary": "Create multiple codification",
+                "operationId": "creates",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/Codification"
+                                }
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/codification": {
+            "post": {
+                "tags": [
+                    "Codification"
+                ],
+                "summary": "Create codification",
+                "operationId": "createCodification",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Codification"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/periodeinentaire/activeordiseable/{id}": {
+            "patch": {
+                "tags": [
+                    "Periode Inventaire"
+                ],
+                "summary": "Update periode by isActive",
+                "operationId": "activeOrDiseable",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PeriodeInventaire"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResponseData"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/users": {
+            "get": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Get All user",
+                "operationId": "getAll",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResponseData"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/periodeinentaire/isactive": {
+            "get": {
+                "tags": [
+                    "Periode Inventaire"
+                ],
+                "summary": "Get periode inventaire is active",
+                "operationId": "getPeriodeInventaireIsActive",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResponseData"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/inventaires": {
+            "get": {
+                "tags": [
+                    "Inventaire"
+                ],
+                "summary": "Get All inventaires",
+                "operationId": "getAll_1",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/inventaires/{id_periode_inventaire}": {
+            "get": {
+                "tags": [
+                    "Inventaire"
+                ],
+                "summary": "Get All inventaires by periode",
+                "operationId": "getByPeriode",
+                "parameters": [
+                    {
+                        "name": "id_periode_inventaire",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/inventaires/codification/{id_codification}/periodeinventaire/{id_periode_inventaire}": {
+            "get": {
+                "tags": [
+                    "Inventaire"
+                ],
+                "summary": "Get inventaire by codification and periode",
+                "operationId": "getInventaireByCodificationAndPeriodeInventaire",
+                "parameters": [
+                    {
+                        "name": "id_codification",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    },
+                    {
+                        "name": "id_periode_inventaire",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResponseData"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/codifications/{id}": {
+            "get": {
+                "tags": [
+                    "Codification"
+                ],
+                "summary": "Get By id",
+                "operationId": "getByIdCodification",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/codifications/n_inventaire/{n_inventaire}": {
+            "get": {
+                "tags": [
+                    "Codification"
+                ],
+                "summary": "Get by n° inventaire",
+                "operationId": "getByNInventaireCodification",
+                "parameters": [
+                    {
+                        "name": "n_inventaire",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResponseData"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/codifications/code_localisation/{code_localisation}": {
+            "get": {
+                "tags": [
+                    "Codification"
+                ],
+                "summary": "Get by code_localisation",
+                "operationId": "getByCodeLocalisationCodification",
+                "parameters": [
+                    {
+                        "name": "code_localisation",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/": {
+            "get": {
+                "tags": [
+                    "index"
+                ],
+                "summary": "index",
+                "operationId": "getAllCodification_1",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Codification": {
+                "required": [
+                    "n_inventaire"
+                ],
+                "type": "object",
+                "properties": {
+                    "id_codification": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "n_inventaire": {
+                        "type": "string"
+                    },
+                    "code_guichet": {
+                        "type": "string"
+                    },
+                    "departement": {
+                        "type": "string"
+                    },
+                    "n_serie": {
+                        "type": "string"
+                    },
+                    "direction": {
+                        "type": "string"
+                    },
+                    "famille": {
+                        "type": "string"
+                    },
+                    "libelle_famille": {
+                        "type": "string"
+                    },
+                    "libelle_immo": {
+                        "type": "string"
+                    },
+                    "sous_libelle_famille": {
+                        "type": "string"
+                    },
+                    "libelle_complementaire": {
+                        "type": "string"
+                    },
+                    "niveau": {
+                        "type": "string"
+                    },
+                    "service": {
+                        "type": "string"
+                    },
+                    "sous_famille": {
+                        "type": "string"
+                    },
+                    "codeLocalisation": {
+                        "type": "string"
+                    },
+                    "libelle_agence": {
+                        "type": "string"
+                    },
+                    "libelle_localisation": {
+                        "type": "string"
+                    }
+                }
+            },
+            "Inventaire": {
+                "required": [
+                    "n_inventaire"
+                ],
+                "type": "object",
+                "properties": {
+                    "id_inventaire": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "etat": {
+                        "type": "string"
+                    },
+                    "nom_agent": {
+                        "type": "string"
+                    },
+                    "n_inventaire": {
+                        "type": "string"
+                    },
+                    "observations": {
+                        "type": "string"
+                    },
+                    "libelle_immo": {
+                        "type": "string"
+                    },
+                    "libelle_localisation": {
+                        "type": "string"
+                    },
+                    "code_localisation": {
+                        "type": "string"
+                    },
+                    "libelle_complementaire": {
+                        "type": "string"
+                    },
+                    "date_inventaire": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "codification": {
+                        "$ref": "#/components/schemas/Codification"
+                    },
+                    "periodeInventaire": {
+                        "$ref": "#/components/schemas/PeriodeInventaire"
+                    },
+                    "user": {
+                        "$ref": "#/components/schemas/Users"
+                    }
+                }
+            },
+            "PeriodeInventaire": {
+                "type": "object",
+                "properties": {
+                    "id_periode_inventaire": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "libelle": {
+                        "type": "string"
+                    },
+                    "n_bordereau": {
+                        "type": "string"
+                    },
+                    "date_debut": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "date_fin": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "active": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "Users": {
+                "type": "object",
+                "properties": {
+                    "userId": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "fullname": {
+                        "type": "string"
+                    },
+                    "email": {
+                        "type": "string"
+                    },
+                    "typeUser": {
+                        "type": "string"
+                    },
+                    "adress": {
+                        "type": "string"
+                    },
+                    "inventaires": {
+                        "uniqueItems": true,
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Inventaire"
+                        }
+                    }
+                }
+            },
+            "ResponseData": {
+                "type": "object",
+                "properties": {
+                    "message": {
+                        "type": "string"
+                    },
+                    "status": {
+                        "type": "boolean"
+                    },
+                    "data": {
+                        "type": "object"
+                    }
+                }
+            }
+        }
+    }
+}
